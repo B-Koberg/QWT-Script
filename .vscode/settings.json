@@ -1,0 +1,139 @@
+{
+    "files.autoSave": "off",
+    "editor.wordWrap": "on",
+    //"editor.wordWrapColumn": 80,
+    //"editor.rulers": [80],
+    "latex-workshop.latex.autoBuild.run": "onSave",
+    "latex-workshop.latex.autoBuild.cleanAndRetry.enabled": true,
+    "latex-workshop.latex.recipe.default": "pdflatex ➜ clean",
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.latex.clean.subfolder.enabled": true,
+    "latex-workshop.latex.outDir": "",
+    
+    // SyncTeX Konfiguration
+    "latex-workshop.synctex.afterBuild.enabled": true,
+    "latex-workshop.view.pdf.synctex.enabled": true,
+    "latex-workshop.synctex.synctexjs.enabled": true,
+    "latex-workshop.view.pdf.internal.synctex.keybinding": "ctrl-click",
+    
+    "latex-workshop.latex.tools": [
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": [
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "biber",
+            "command": "biber",
+            "args": [
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "clean",
+            "command": "powershell",
+            "args": [
+                "-Command",
+                "Get-ChildItem -Path . -Recurse -Include '*.aux', '*.bbl', '*.bcf', '*.blg', '*.brf', '*.log', '*.out', '*.toc', '*.fls', '*.fdb_latexmk', '*.lot', '*.run.xml' | Remove-Item -Force -ErrorAction SilentlyContinue"
+            ]
+        },
+        {
+            "name": "clean-all",
+            "command": "powershell",
+            "args": [
+                "-Command",
+                "Get-ChildItem -Path . -Recurse -Include '*.aux', '*.bbl', '*.bcf', '*.blg', '*.brf', '*.log', '*.out', '*.toc', '*.fls', '*.fdb_latexmk', '*.lot', '*.run.xml', '*.synctex.gz' | Remove-Item -Force -ErrorAction SilentlyContinue"
+            ]
+        }
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "pdflatex ➜ bibtex ➜ pdflatex × 2 ➜ clean-all",
+            "tools": [
+                "pdflatex",
+                "bibtex", 
+                "pdflatex",
+                "pdflatex",
+                "clean-all"
+            ]
+        },
+        {
+            "name": "pdflatex × 2 ➜ clean",
+            "tools": [
+                "pdflatex",
+                "pdflatex",
+                "clean"
+            ]
+        },
+        {
+            "name": "pdflatex ➜ clean",
+            "tools": [
+                "pdflatex",
+                "clean"
+            ]
+        }
+        
+    ],
+    // Copilot-Einstellungen für LaTeX-Dateien
+    "[latex]": {
+        "github.copilot.enable": false,
+        "github.copilot.editor.enableAutoCompletions": false,
+        "github.copilot.advanced.inlineSuggestEnable": false,
+        "editor.inlineSuggest.enabled": false,
+        "editor.suggest.showInlineDetails": false
+    },
+    "[tex]": {
+        "github.copilot.enable": false,
+        "github.copilot.editor.enableAutoCompletions": false,
+        "github.copilot.advanced.inlineSuggestEnable": false,
+        "editor.inlineSuggest.enabled": false,
+        "editor.suggest.showInlineDetails": false
+    },
+    // Alternative: Copilot komplett für diesen Workspace deaktivieren
+    "github.copilot.enable": false,
+    "github.copilot.editor.enableAutoCompletions": false,
+    "editor.inlineSuggest.enabled": false,
+    
+    // Spell Checker Einstellungen
+    "cSpell.words": [
+        "actinides",
+        "cosmogenic",
+        "cryocoolers",
+        "DARWIN",
+        "electroluminescence",
+        "ENDF",
+        "Geant",
+        "GeV",
+        "MeV",
+        "neutrinoless",
+        "photodetectors",
+        "polyethylene",
+        "ppb",
+        "radiogenic",
+        "WIMPs",
+        "xenon",
+        "XENON",
+        "XLZD",
+        "ZEPLIN"
+    ],
+    "cSpell.language": "en,de",
+    "cSpell.ignoreRegExpList": [
+        "\\\\[a-zA-Z]+\\{[^}]*\\}",
+        "\\$[^$]*\\$",
+        "\\\\cite\\{[^}]*\\}",
+        "\\\\ref\\{[^}]*\\}",
+        "\\\\label\\{[^}]*\\}"
+    ]
+}

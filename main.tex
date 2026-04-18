@@ -1,0 +1,81 @@
+\documentclass[a4paper,12pt]{article}
+
+% --- Grundlegende Pakete ---
+\usepackage[utf8]{inputenc}      % UTF-8 Eingabe
+\usepackage[T1]{fontenc}         % Saubere Ausgabe
+\usepackage[ngerman]{babel}      % Deutsche Sprache
+\usepackage{lmodern}             % Moderne Schrift
+\usepackage{microtype}           % Schönere Typografie
+
+% --- Mathe & Symbole ---
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{dsfont}
+\numberwithin{equation}{subsection}
+\renewcommand{\theequation}{\thesubsection.\arabic{equation}}
+
+% --- Layout & Struktur ---
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\usepackage{setspace}            % Zeilenabstand
+\onehalfspacing
+
+\usepackage{parskip}             % Abstand zwischen Absätzen statt Einrückung
+
+% --- Grafiken & Tabellen ---
+\usepackage{graphicx}
+\usepackage{booktabs}
+
+% --- Farben & Links ---
+\usepackage{xcolor}
+\usepackage[
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    citecolor=blue
+]{hyperref}
+
+% --- Literatur (BibTeX) ---
+\usepackage[numbers]{natbib}
+
+% --- Eigene Befehle (optional) ---
+\newcommand{\todo}[1]{\textcolor{red}{TODO: #1}}
+\newcommand{\vorlesungstitel}{Introduction to Feynman Diagrams and Quantum Field Theory with Applications to Solid State Physics}
+\newcommand{\professor}{Prof. Dr. Frank Jahnke}
+\newcommand{\mitschriftvon}{Bastian Koberg}
+
+\begin{document}
+\hypersetup{pageanchor=false}
+
+\begin{titlepage}
+    \centering
+  \vspace*{3.5cm}
+  {\Huge \textbf{\vorlesungstitel} \par}
+  \vspace{1.2cm}
+  {\Large Vorlesungsmitschrift \par}
+  \vspace{1.8cm}
+  {\large Dozent: \professor \par}
+  \vspace{0.6cm}
+  {\large Mitschrift: \mitschriftvon \par}
+    \vfill
+    {\large \today \par}
+\end{titlepage}
+
+\pagenumbering{roman}
+\tableofcontents
+\newpage
+\hypersetup{pageanchor=true}
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\input{chapters/00_Motivation.tex}
+\input{chapters/01_01_redDichtematrizenPropagtoren.tex}
+\input{chapters/01_02_VerschGFuEigensch.tex}
+\newpage
+
+
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{myBib}
+
+\end{document}
