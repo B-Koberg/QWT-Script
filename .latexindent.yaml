@@ -1,0 +1,5 @@
+modifyLineBreaks:
+  condenseMultipleBlankLinesInto: 1
+  preserveBlankLines: 1
+  textWrapOptions:
+    columns: 0

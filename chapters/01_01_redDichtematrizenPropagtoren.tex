@@ -1,42 +1,17 @@
-\providecommand{\ket}[1]{\left|#1\right\rangle}
-\providecommand{\bra}[1]{\left\langle#1\right|}
-\providecommand{\erw}[1]{\left\langle#1\right\rangle}
-\providecommand{\lend}[1]{\begin{flushright}
-#1\\[-0.8em]
-\rule{3cm}{0.4pt}
-\end{flushright}}
-
 \section{Wechselwirkendes Elektronengas}
 
 \subsection{Reduzierte Dichtematrizen und Propagatoren}
 
 \subsubsection*{Reduzierte Dichtematrix}
-Statistischer Operator:
+Mit dem Statistischen Operator $\varrho$ gilt für ein beliebigen Erwartungswert:$\erw{A} = \mathrm{Sp}\{\varrho A\}$. Wir betrachten ein \(N\)-Teilchen-System.
+
+Für einen Einteilchenoperator gilt: $A = \sum_i A_i$ wobei $A_i$ auf den Zustand des i-ten Teilchen wirkt.
 
 
-\begin{equation}
-\erw{A} = \mathrm{Sp}\{\varrho A\}
-\end{equation}
-
-
-für einen beliebigen Operator \(A\).  
-Wir betrachten ein \(N\)-Teilchen-System.
-
-Einteilchenoperator:
-
-\begin{equation}
-A = \sum_i A_i \quad
-\raisebox{0.8ex}{$
-\begin{array}[t]{l}
-\text{\(A_i\) wirkt auf den Zustand}\\
-\text{des \(i\)-ten Teilchens}
-\end{array}
-$}
-\end{equation}
 
 Wir benutzen die \(N\)-Teilchen-Basis:
 \begin{equation}
-\mathds{1} = \int dq_1 \dots dq_N \, \ket{q_1 \dots q_N}\bra{q_1 \dots q_N}
+    \mathds{1} = \int dq_1 \dots dq_N \, \ket{q_1 \dots q_N}\bra{q_1 \dots q_N}
 \end{equation}
 
 \begin{center}
@@ -45,22 +20,21 @@ Wir benutzen die \(N\)-Teilchen-Basis:
 
 Damit:
 
-
 \begin{align}
-\erw{A}
-&= \int dq_1 \dots dq_N \bra{q_1 \dots q_N} \varrho A \ket{q_1 \dots q_N} \notag\\
-&= \int dq_1 \dots dq_N \,\int dq_1' \dots dq_N' \,
-\underbrace{\bra{q_1 \dots q_N} \varrho \ket{q_1' \dots q_N'}}_{\text{Dichtematrix}}
-\underbrace{\bra{q_1' \dots q_N'} A \ket{q_1 \dots q_N}}_{\text{Matrixelement}} \notag\\
-&= N \int dq_1 \dots dq_N \,\int dq_1' \dots dq_N'\,
-\bra{q_1'}A_1\ket{q_1} \,
-\underbrace{\bra{q_2' \dots q_N'} \ket{q_2 \dots q_N}}_{\delta_{ij} \text{(Orthogonalität der Basis)}}
-\bra{q_1 \dots q_N} \varrho \ket{q_1' \dots q_N'} \notag\\
-&= \int dq_1 \,\int dq_1' \, \bra{q_1'}A_1\ket{q_1} \, \varrho(q_1,q_1') \quad (*)
-\\[0.4em]
-\varrho(q_1,q_1')
-&= N \int dq_2 \dots dq_N \, \bra{q_1,q_2,\dots,q_N} \varrho \ket{q_1',q_2,\dots,q_N} \notag\\
-&= N\,\mathrm{Sp}_{2\dots N}\{\varrho\}
+    \erw{A}
+     & = \int dq_1 \dots dq_N \bra{q_1 \dots q_N} \varrho A \ket{q_1 \dots q_N} \notag                              \\
+     & = \int dq_1 \dots dq_N \,\int dq_1\mkern1mu' \dots dq_N\mkern1mu' \,
+    \underbrace{\bra{q_1 \dots q_N} \varrho \ket{q_1\mkern1mu' \dots q_N\mkern1mu'}}_{\text{Dichtematrix}}
+    \underbrace{\bra{q_1\mkern1mu' \dots q_N\mkern1mu'} A \ket{q_1 \dots q_N}}_{\text{Matrixelement}} \notag        \\
+     & = N \int dq_1 \dots dq_N \,\int dq_1\mkern1mu' \dots dq_N\mkern1mu'\,
+    \bra{q_1\mkern1mu'}A_1\ket{q_1} \,
+    \underbrace{\bra{q_2\mkern1mu' \dots q_N\mkern1mu'} \ket{q_2 \dots q_N}}_{\delta_{ij} \text{(Orthogonalität der Basis)}}
+    \bra{q_1 \dots q_N} \varrho \ket{q_1\mkern1mu' \dots q_N\mkern1mu'} \notag                                      \\
+     & = \int dq_1 \,\int dq_1\mkern1mu' \, \bra{q_1\mkern1mu'}A_1\ket{q_1} \, \varrho(q_1,q_1\mkern1mu') \quad (*)
+    \\[0.4em]
+    \varrho(q_1,q_1\mkern1mu')
+     & = N \int dq_2 \dots dq_N \, \bra{q_1,q_2,\dots,q_N} \varrho \ket{q_1\mkern1mu',q_2,\dots,q_N} \notag         \\
+     & = N\,\mathrm{Sp}_{2\dots N}\{\varrho\}
 \end{align}
 
 \begin{center}
@@ -74,138 +48,115 @@ $\Rightarrow$ Vielteilchentheorie über reduzierte Dichtematrizen formulieren um
 Man kann Operatoren auch durch Feldoperatoren 2. Quantisierung formulieren
 
 \begin{equation}
-A = \sum_{s,s'}\int d^3r \,\int d^3r'  \,
-\bra{\vec r\,',s'} A \ket{\vec r,s} \, \psi^\dagger_{s'}(\vec r\,') \psi_s(\vec r)
+    A = \sum_{s,s\mkern1mu'}\int d^3r \,\int d^3r\mkern1mu'  \,
+    \bra{\vec r\mkern1mu',s\mkern1mu'} A \ket{\vec r,s} \, \psi^\dagger_{s\mkern1mu'}(\vec r\mkern1mu') \psi_s(\vec r)
 \end{equation}
 
 Mit dem statistischen Operator folgt für den Erwartungswert:
 
-
 \begin{equation}
-\erw{A} = \sum_{s,s'}
-\int d^3r \, \int d^3r'\,
-\bra{\vec r\,',s'} A \ket{\vec r,s} \,
-\mathrm{Sp}\{\varrho \, \psi^\dagger_{s'}(\vec r\,',t)\psi_s(\vec r,t)\} \quad (**)
+    \erw{A} = \sum_{s,s\mkern1mu'}
+    \int d^3r \, \int d^3r\mkern1mu'\,
+    \bra{\vec r\mkern1mu',s\mkern1mu'} A \ket{\vec r,s} \,
+    \mathrm{Sp}\{\varrho \, \psi^\dagger_{s\mkern1mu'}(\vec r\mkern1mu',t)\psi_s(\vec r,t)\} \quad (**)
 \end{equation}
-
-
 
 Vergleich von (*) und (**) liefert die reduzierte Einteilchen-Dichtematrix in 2. Quantisierung:
 
-
 \begin{equation}
-\varrho_{ss'}(\vec r,\vec r\,';t) = 
-\mathrm{Sp}\{\varrho \, \psi^\dagger_{s'}(\vec r\,',t)\psi_s(\vec r,t)\}
-= \erw{\psi^\dagger_{s'}(\vec r\,',t)\psi_s(\vec r,t)}
+    \varrho_{ss\mkern1mu'}(\vec r,\vec r\mkern1mu';t) =
+    \mathrm{Sp}\{\varrho \, \psi^\dagger_{s\mkern1mu'}(\vec r\mkern1mu',t)\psi_s(\vec r,t)\}
+    = \erw{\psi^\dagger_{s\mkern1mu'}(\vec r\mkern1mu',t)\psi_s(\vec r,t)}
 \end{equation}
-
-
 
 Die Diagonalelemente der reduzierten Einteilen-Dichtematrix ist der Erwartungswert der Teilchendichte
 
-
 \begin{equation}
-\erw{\varrho(\vec r,t)} = \sum _ s \varrho_{ss}(\vec r,\vec r)
+    \erw{\varrho(\vec r,t)} = \sum _ s \varrho_{ss}(\vec r,\vec r)
 \end{equation}
-
 
 \subsubsection*{Propagatoren}
 
 Zur Untersuchung der Bewegungsgleichung bilden die die Zeitableitung der reduzierten Dichtematrix:
 
-
 \begin{equation}
- \frac{\partial}{\partial t} \varrho_{ss'}(\vec r,\vec r\,',t)
-= \erw{\frac{\partial}{\partial t}\psi^\dagger_{s'}(\vec r\,',t)\,\psi_s(\vec r,t)
-+ \psi^\dagger_{s'}(\vec r\,',t)\,\frac{\partial}{\partial t}\psi_s(\vec r,t)}
+    \frac{\partial}{\partial t} \varrho_{ss\mkern1mu'}(\vec r,\vec r\mkern1mu',t)
+    = \erw{\frac{\partial}{\partial t}\psi^\dagger_{s\mkern1mu'}(\vec r\mkern1mu',t)\,\psi_s(\vec r,t)
+        + \psi^\dagger_{s\mkern1mu'}(\vec r\mkern1mu',t)\,\frac{\partial}{\partial t}\psi_s(\vec r,t)}
 \end{equation}
-
-
 
 Bisher: Heisenberg-Bewegungsgleichung für einzeitige Funktionen.  \\
-Jetzt: zweizeitige Funktionen. Man setzt für ein t t' ein. Weil ohne Beschränkung der Allgemein kann man es so verallgemeinern.
+Jetzt: zweizeitige Funktionen. Man setzt für ein $t$ ein $t\mkern1mu'$ ein. Weil ohne Beschränkung der Allgemein kann man es so verallgemeinern.
 
-\begin{equation}
-\begin{aligned}
-\label{propagatoren}
-\erw{\psi^\dagger_s(\vec r,t)\psi_{s'}(\vec r\,',t')}
-&= -i \hbar G^{<}_{ss'}(\vec r,t; \vec r\,',t')\\
-\erw{\psi_s(\vec r,t)\psi^\dagger_{s'}(\vec r\,',t')}
-&= i \hbar G^{>}_{ss'}(\vec r,t; \vec r\,',t')
-\end{aligned}
+\begin{equation}\label{propagatoren}
+    \begin{aligned}
+        \erw{\psi^\dagger_s(\vec r,t)\psi_{s\mkern1mu'}(\vec r\mkern1mu',t\mkern1mu')}
+         & = -i \hbar G^{<}_{ss\mkern1mu'}(\vec r,t; \vec r\mkern1mu',t\mkern1mu') \\
+        \erw{\psi_s(\vec r,t)\psi^\dagger_{s\mkern1mu'}(\vec r\mkern1mu',t\mkern1mu')}
+         & = i \hbar G^{>}_{ss\mkern1mu'}(\vec r,t; \vec r\mkern1mu',t\mkern1mu')
+    \end{aligned}
 \end{equation}
-
-
 
 Das sind zwei verschiedene Größen da es keinen zweizeitgen Kommutator gibt, und sie also nicht so einfach zu vertauschen sind.\\
 \\
 Im Grundzustand $\ket{\phi_G}$ dann ist der statistische Operator der Projektionsoperator $\varrho = \ket{\phi_G}\bra{\phi_G}$
 
-
-
-
 \begin{equation}
-\begin{aligned}
-\erw{A}
-= \mathrm{Sp}\{\varrho A\}
-&= \sum_i \bra{i}\ket{\phi_G}\bra{\phi_G} A_i\ket{i}\\
-&= \sum_i \bra{\phi_G} A_i\ket{i}\bra{i}\ket{\phi_G}\\
-&= \bra{\phi_G} A\ket{\phi_G}
-\end{aligned}
+    \begin{aligned}
+        \erw{A}
+        = \mathrm{Sp}\{\varrho A\}
+         & = \sum_i \bra{i}\ket{\phi_G}\bra{\phi_G} A_i\ket{i} \\
+         & = \sum_i \bra{\phi_G} A_i\ket{i}\bra{i}\ket{\phi_G} \\
+         & = \bra{\phi_G} A\ket{\phi_G}
+    \end{aligned}
 \end{equation}
-
-
 
 Für $G^{>}$ folgt im Zustand $\ket{\phi_G}$:
 
-
 \begin{equation}
-\begin{aligned}
-i\,G^{>}_{ss'}(\vec r,t; \vec r\,',t')
-= \bra{\phi_G}
-\underbrace{\psi_s(\vec r,t)}_{\substack{\text{Vernichtung }e^-\\\text{mit }s\text{ bei }\vec r,t}}
-\underbrace{\psi^\dagger_{s'}(\vec r\,',t')}_{\substack{\text{Erzeugung }e^-\\\text{mit }s'\text{ bei }\vec r\,',t'}}
-\ket{\phi_G},
-\qquad t>t'
-\end{aligned}
+    \begin{aligned}
+        i\,G^{>}_{ss\mkern1mu'}(\vec r,t; \vec r\mkern1mu',t\mkern1mu')
+        = \bra{\phi_G}
+        \underbrace{\psi_s(\vec r,t)}_{\substack{\text{Vernichtung }e^-\\\text{mit }s\text{ bei }\vec r,t}}
+        \underbrace{\psi^\dagger_{s\mkern1mu'}(\vec r\mkern1mu',t\mkern1mu')}_{\substack{\text{Erzeugung }e^-\\\text{mit }s\mkern1mu'\text{ bei }\vec r\mkern1mu',t\mkern1mu'}}
+        \ket{\phi_G},
+        \qquad t>t\mkern1mu'
+    \end{aligned}
 \end{equation}
 
-
-
-Interpretation:  
-Wahrscheinlichkeitsamplitude, dass ein Teilchen mit Spin s am Ort $\vec r$ zur Zeit $t$ erzeugt wird und darauf zur Zeit $t'$ ein Teilchen mit $s'$ an Stelle $\vec r\,'$ gefunden/vernichtet werden kann.
+Interpretation:
+Wahrscheinlichkeitsamplitude, dass ein Teilchen mit Spin s am Ort $\vec r$ zur Zeit $t$ erzeugt wird und darauf zur Zeit $t\mkern1mu'$ ein Teilchen mit $s\mkern1mu'$ an Stelle $\vec r\mkern1mu'$ gefunden/vernichtet werden kann.
 
 $\Rightarrow$ Elektronenpropagator für den Grundzustand
 
 Analoge Anschauungen gelten für die zweite Formel aus \ref{propagatoren} und damit den Lochpropagator
 
 \begin{equation}
--i\hbar\,G^{<}_{ss'}(\vec r,t;\vec r\,',t')
-= \bra{\phi_G}\,\psi^\dagger_{s'}(\vec r\,',t')\,\psi_s(\vec r,t)\,\ket{\phi_G},
-\qquad t<t'
+    -i\hbar\,G^{<}_{ss\mkern1mu'}(\vec r,t;\vec r\mkern1mu',t\mkern1mu')
+    = \bra{\phi_G}\,\psi^\dagger_{s\mkern1mu'}(\vec r\mkern1mu',t\mkern1mu')\,\psi_s(\vec r,t)\,\ket{\phi_G},
+    \qquad t<t\mkern1mu'
 \end{equation}
 
 \lend{Vorl. 10.04.2026}
-
 
 \subsubsection*{Kompakte Schreibweise und zeitgeordnete Green-Funktionen}
 
 Kompakte Schreibweise für die Argumente:
 
 \begin{equation}
-\bigl\{\vec r_1,t_1,s_1\bigr\} \equiv 1
+    \bigl\{\vec r_1,t_1,s_1\bigr\} \equiv 1
 \end{equation}
 
 Im Heisenberg-Bild gilt damit kurz:
 
 \begin{equation}
-\psi_{s_1}(t_i) = \psi_{H,(1)}=\psi(1)
+    \psi_{s_1}(t_i) = \psi_{H,(1)}=\psi(1)
 \end{equation}
 
 Für die freie Green-Funktion schreibt man:
 
 \begin{equation}
-G^\gtrless_{s_1s_2}(\vec r_1,t_1;\vec r_2,t_2) = G^\gtrless (1,2)
+    G^\gtrless_{s_1s_2}(\vec r_1,t_1;\vec r_2,t_2) = G^\gtrless (1,2)
 \end{equation}
 
 \subsubsection*{Kombination der Propagatoren zur Green-Funktion}
@@ -213,25 +164,24 @@ G^\gtrless_{s_1s_2}(\vec r_1,t_1;\vec r_2,t_2) = G^\gtrless (1,2)
 Da die beiden Propagatoren für unterschiedliche Zeitbereiche/Zeitfälle gelten, lassen sie sich zusammenfassen zu:
 
 \begin{equation}
-G(1,1') =
-\begin{cases}
-G^{>}(1,1') = -\frac{i}{\hbar}\,\erw{\psi(1)\psi^\dagger(1')}, & t_1 > t_1' \\
-G^{<}(1,1') = \phantom{-}\frac{i}{\hbar}\,\erw{\psi^\dagger(1')\psi(1)}, & t_1 < t_1'
-\end{cases}
+    G(1,1\mkern1mu') =
+    \begin{cases}
+        G^{>}(1,1\mkern1mu') = -\frac{i}{\hbar}\,\erw{\psi(1)\psi^\dagger(1\mkern1mu')},           & t_1 > t_1\mkern1mu' \\
+        G^{<}(1,1\mkern1mu') = \phantom{-}\frac{i}{\hbar}\,\erw{\psi^\dagger(1\mkern1mu')\psi(1)}, & t_1 < t_1\mkern1mu'
+    \end{cases}
 \end{equation}
 
 Alternative Schreibweise mit der Heaviside-Funktion \(\Theta(t)\):
 
 \begin{equation}
-G(1,1') = \Theta(t_1-t_1')\,G^{>}(1,1') + \Theta(t_1'-t_1)\,G^{<}(1,1')
+    G(1,1\mkern1mu') = \Theta(t_1-t_1\mkern1mu')\,G^{>}(1,1\mkern1mu') + \Theta(t_1\mkern1mu'-t_1)\,G^{<}(1,1\mkern1mu')
 \end{equation}
 
 Der Zeitordnungsoperator \(T\) ordnet Feldoperatoren mit zunehmender Zeit nach links (late left). Für Fermionen entsteht bei jeder Vertauschung ein Minuszeichen. \(T\) hat nichts mit dem Kommutator zu tun, sondern wirkt nur bei ungleichen Zeiten.
 
 \begin{equation}
-G(1,1') = -\frac{i}{\hbar}\,\erw{T\,[\psi(1)\psi^\dagger(1')]}
+    G(1,1\mkern1mu') = -\frac{i}{\hbar}\,\erw{T\,[\psi(1)\psi^\dagger(1\mkern1mu')]}
 \end{equation}
-
 
 \subsubsection*{Eigenschaften/Informationen der GF}
 
@@ -239,47 +189,45 @@ Die Green-Funktion \(G\) heißt daher Einteilchen-zeitgeordnete (kausale) Green-
 
 \begin{itemize}
     \item Vorteile der Verwendung von \(G\)
-    \begin{itemize}
-        \item Feynman-Regeln für die systematische Berechnung von Green-Funktionen sind für die zeitgeordnete Green-Funktion am einfachsten.
-    \end{itemize}
+          \begin{itemize}
+              \item Feynman-Regeln für die systematische Berechnung von Green-Funktionen sind für die zeitgeordnete Green-Funktion am einfachsten.
+          \end{itemize}
     \item Die Einteilchen-Green-Funktion enthält folgende Information:
-    \begin{enumerate}
-        \item Erwartungswerte von Einteilchenoperatoren
-        \item Erwartungswert der Gesamtenergie \(\erw{H}\)
-        \item Anregungsspektrum des Vielteilchensystems
-    \end{enumerate}
+          \begin{enumerate}
+              \item Erwartungswerte von Einteilchenoperatoren
+              \item Erwartungswert der Gesamtenergie \(\erw{H}\)
+              \item Anregungsspektrum des Vielteilchensystems
+          \end{enumerate}
 \end{itemize}
 
 \underline{1. Erwartungswert von Einteilchenoperatoren:}
 \begin{equation}
-A(t)=\sum_{s,s'}\int d^3r\,\int d^3r'\,\bra{\vec r\,',s'} A \ket{\vec r,s}\,\psi^{\dagger}_{s'}(\vec r\,',t)\,\psi_s(\vec r,t)
+    A(t)=\sum_{s,s\mkern1mu'}\int d^3r\,\int d^3r\mkern1mu'\,\bra{\vec r\mkern1mu',s\mkern1mu'} A \ket{\vec r,s}\,\psi^{\dagger}_{s\mkern1mu'}(\vec r\mkern1mu',t)\,\psi_s(\vec r,t)
 \end{equation}
 
 Damit folgt fuer den Erwartungswert:
 
 \begin{equation}
-\erw{A}=\sum_{s,s'}\int d^3r\,\int d^3r'\,\bra{\vec r\,',s'} A \ket{\vec r,s}\,
-\underbrace{\erw{\psi^{\dagger}_{s'}(\vec r\,',t)\psi_s(\vec r,t)}}_{-i\hbar\,G^{<}_{ss'}(\vec r,t;\vec r\,',t)}
+    \erw{A}=\sum_{s,s\mkern1mu'}\int d^3r\,\int d^3r\mkern1mu'\,\bra{\vec r\mkern1mu',s\mkern1mu'} A \ket{\vec r,s}\,
+    \underbrace{\erw{\psi^{\dagger}_{s\mkern1mu'}(\vec r\mkern1mu',t)\psi_s(\vec r,t)}}_{-i\hbar\,G^{<}_{ss\mkern1mu'}(\vec r,t;\vec r\mkern1mu',t)}
 \end{equation}
 
-und mit der Vorschrift gleicher Zeiten als Grenzwert (
-\(t_{+}=t+\varepsilon,\,\varepsilon\to 0, \varepsilon > 0\)):
+und mit der Vorschrift gleicher Zeiten als Grenzwert:
+\(t_{+}=t+\varepsilon,\,\varepsilon\to 0, \varepsilon > 0\):
 
-
-
-Insbesondere fuer lokale Operatoren die nur an einem Ort wirken, also keine Uebergaenge $\vec r\to \vec r\,'$ mit $\vec r\neq \vec r\,'$ erzeugen.
+Insbesondere fuer lokale Operatoren die nur an einem Ort wirken, also keine Uebergaenge $\vec r\to \vec r\mkern1mu'$ mit $\vec r\neq \vec r\mkern1mu'$ erzeugen.
 Dadurch kollabiert der allgemeine Kernel auf einen Term proportional zu einer Deltafunktion.
 
 \begin{equation}
-\bra{\vec r\,',s'} A \ket{\vec r,s} = A_{s's}(\vec r)\,\delta(\vec r-\vec r\,')
+    \bra{\vec r\mkern1mu',s\mkern1mu'} A \ket{\vec r,s} = A_{s\mkern1mu's}(\vec r)\,\delta(\vec r-\vec r\mkern1mu')
 \end{equation}
 
 \begin{equation}
-A(t)=\sum_{s,s'}\int d^3r\,\psi^{\dagger}_{s}(\vec r,t)\,A_{ss'}(\vec r)\,\psi_{s}(\vec r,t)
+    A(t)=\sum_{s,s\mkern1mu'}\int d^3r\,\psi^{\dagger}_{s}(\vec r,t)\,A_{ss\mkern1mu'}(\vec r)\,\psi_{s}(\vec r,t)
 \end{equation}
 
 \begin{equation}
-\erw{A(t)}=\sum_{s,s'}\int d^3r\,\lim_{\vec r\,'\to \vec r}A_{ss'}(\vec r)\,\bigl[-i\hbar\,G_{s's}(\vec r,t;\vec r\,',t_{+})\bigr]
+    \erw{A(t)}=\sum_{s,s\mkern1mu'}\int d^3r\,\lim_{\vec r\mkern1mu'\to \vec r}A_{ss\mkern1mu'}(\vec r)\,\bigl[-i\hbar\,G_{s\mkern1mu's}(\vec r,t;\vec r\mkern1mu',t_{+})\bigr]
 \end{equation}
 
 Der Limes wird erst ausgefuehrt, nachdem der Operator auf die Green-Funktion angewendet wurde. Das wird gemacht damit A nur auf den linken Teil in der GF wirkt.
@@ -287,76 +235,74 @@ Der Limes wird erst ausgefuehrt, nachdem der Operator auf die Green-Funktion ang
 Beispiele:
 
 \begin{equation}
-\begin{aligned}
-\erw{n(\vec r)}
-&= \sum_s\erw{\psi^{\dagger}_s(\vec r,t)\psi_s(\vec r,t)}\\
-&= -i\hbar\sum_s G_{ss}(\vec r,t;\vec r,t_{+})
-\end{aligned}
+    \begin{aligned}
+        \erw{n(\vec r)}
+         & = \sum_s\erw{\psi^{\dagger}_s(\vec r,t)\psi_s(\vec r,t)} \\
+         & = -i\hbar\sum_s G_{ss}(\vec r,t;\vec r,t_{+})
+    \end{aligned}
 \end{equation}
 
 \begin{equation}
-\begin{aligned}
-\erw{T}
-&= \sum_s\int d^3r\,\erw{\psi^{\dagger}_s(\vec r,t)\left(-\frac{\hbar^2}{2m}\Delta\right)\psi_s(\vec r,t)}\\
-&= \sum_s\int d^3r\,\lim_{\vec r\,'\to \vec r}\left(-\frac{\hbar^2}{2m}\Delta_{\vec r}\right)\bigl[-i\hbar\,G_{ss}(\vec r,t;\vec r\,',t_{+})\bigr]
-\end{aligned}
+    \begin{aligned}
+        \erw{T}
+         & = \sum_s\int d^3r\,\erw{\psi^{\dagger}_s(\vec r,t)\left(-\frac{\hbar^2}{2m}\Delta\right)\psi_s(\vec r,t)}                                                       \\
+         & = \sum_s\int d^3r\,\lim_{\vec r\mkern1mu'\to \vec r}\left(-\frac{\hbar^2}{2m}\Delta_{\vec r}\right)\bigl[-i\hbar\,G_{ss}(\vec r,t;\vec r\mkern1mu',t_{+})\bigr]
+    \end{aligned}
 \end{equation}
-
 
 \underline{2. Hamiltonoperator verwenden:}
 
 \begin{equation}
-\begin{aligned}
-H
-&= \sum_s\int d^3r\,\psi_s^{\dagger}(\vec r,t)\left(-\frac{\hbar^2}{2m}\Delta\right)\psi_s(\vec r,t)\\
-&= \frac{1}{2}\sum_{s,s'}\int d^3r\,\int d^3r''\,\psi_s^{\dagger}(\vec r,t)\psi_{s'}^{\dagger}(\vec r\,'',t)\,V(\vec r-\vec r\,'')\,\psi_{s'}(\vec r\,'',t)\psi_s(\vec r,t)
-\end{aligned}
+    \begin{aligned}
+        H
+         & = \sum_s\int d^3r\,\psi_s^{\dagger}(\vec r,t)\left(-\frac{\hbar^2}{2m}\Delta\right)\psi_s(\vec r,t)                                                                                                                                 \\
+         & = \frac{1}{2}\sum_{s,s\mkern1mu'}\int d^3r\,\int d^3r\mkern1mu''\,\psi_s^{\dagger}(\vec r,t)\psi_{s\mkern1mu'}^{\dagger}(\vec r\mkern1mu'',t)\,V(\vec r-\vec r\mkern1mu'')\,\psi_{s\mkern1mu'}(\vec r\mkern1mu'',t)\psi_s(\vec r,t)
+    \end{aligned}
 \end{equation}
 
 Zur Formulierung der Heisenberg-Bewegungsgleichung:
 
 \begin{equation}
-\begin{aligned}
-i\hbar\,\frac{\partial}{\partial t}\psi_s(\vec r,t)
-&= -\frac{\hbar^2}{2m}\Delta\,\psi_s(\vec r,t)\\
-&\quad + \sum_{s''}\int d^3r''\,\psi_{s''}^{\dagger}(\vec r\,'',t)\,V(\vec r-\vec r\,'')\,\psi_{s''}(\vec r\,'',t)\psi_s(\vec r,t)
-\end{aligned}
+    \begin{aligned}
+        i\hbar\,\frac{\partial}{\partial t}\psi_s(\vec r,t)
+         & = -\frac{\hbar^2}{2m}\Delta\,\psi_s(\vec r,t)                                                                                                                                              \\
+         & \quad + \sum_{s\mkern1mu''}\int d^3r\mkern1mu''\,\psi_{s\mkern1mu''}^{\dagger}(\vec r\mkern1mu'',t)\,V(\vec r-\vec r\mkern1mu'')\,\psi_{s\mkern1mu''}(\vec r\mkern1mu'',t)\psi_s(\vec r,t)
+    \end{aligned}
 \end{equation}
 
-Multipliziere von links mit $\psi_{s\,'}^{\dagger}(\vec r\,',t')$ und bilde den Erwartungswert:
+Multipliziere von links mit $\psi_{s\mkern1mu'}^{\dagger}(\vec r\mkern1mu',t\mkern1mu')$ und bilde den Erwartungswert:
 
-\begin{equation}
-\begin{aligned}
-    \label{Heisenberg_Erwartungswert}
-\left(i\hbar\frac{\partial}{\partial t}+\frac{\hbar^2}{2m}\Delta\right)\erw{\psi_{s\,'}^{\dagger}(\vec r\,',t')\psi_s(\vec r,t)}
-&= \sum_{s''}\int d^3r''\,\erw{\psi_{s\,'}^{\dagger}(\vec r\,',t')\psi_{s''}^{\dagger}(\vec r\,'',t)\,V(\vec r-\vec r\,'')\,\psi_{s''}(\vec r\,'',t)\psi_s(\vec r,t)}
-\end{aligned}
+\begin{equation}\label{Heisenberg_Erwartungswert}
+    \begin{aligned}
+        \left(i\hbar\frac{\partial}{\partial t}+\frac{\hbar^2}{2m}\Delta\right)\erw{\psi_{s\mkern1mu'}^{\dagger}(\vec r\mkern1mu',t\mkern1mu')\psi_s(\vec r,t)}
+         & = \sum_{s\mkern1mu''}\int d^3r\mkern1mu''\,\erw{\psi_{s\mkern1mu'}^{\dagger}(\vec r\mkern1mu',t\mkern1mu')\psi_{s\mkern1mu''}^{\dagger}(\vec r\mkern1mu'',t)\,V(\vec r-\vec r\mkern1mu'')\,\psi_{s\mkern1mu''}(\vec r\mkern1mu'',t)\psi_s(\vec r,t)}
+    \end{aligned}
 \end{equation}
 
 Potentialenergie:
 
 \begin{equation}
-\begin{aligned}
-\erw{V}
-&= \frac{1}{2}\sum_{s,s''}\int d^3r\,\int d^3r''\,\psi_s^{\dagger}(\vec r,t)\psi_{s''}^{\dagger}(\vec r\,'',t)\,V(\vec r-\vec r\,'')\,\psi_{s''}(\vec r\,'',t)\psi_s(\vec r,t)\\
-&= \frac{1}{2}\sum_s\int d^3r\,\lim_{\substack{\vec r\,'\to\vec r\\ t'\to t}}\left(i\hbar\frac{\partial}{\partial t}+\frac{\hbar^2}{2m}\Delta\right)\erw{\psi_s^{\dagger}(\vec r\,',t')\psi_s(\vec r,t)}\\
-&= -\frac{i\hbar}{2}\sum_s\int d^3r\,\lim_{\substack{\vec r\,'\to\vec r\\ t'\to t_{+}}}\left(i\hbar\frac{\partial}{\partial t}+\frac{\hbar^2}{2m}\Delta\right)G_{ss}(\vec r,t;\vec r\,',t'_+)
-\end{aligned}
+    \begin{aligned}
+        \erw{V}
+         & = \frac{1}{2}\sum_{s,s\mkern1mu''}\int d^3r\,\int d^3r\mkern1mu''\,\psi_s^{\dagger}(\vec r,t)\psi_{s\mkern1mu''}^{\dagger}(\vec r\mkern1mu'',t)\,V(\vec r-\vec r\mkern1mu'')\,\psi_{s\mkern1mu''}(\vec r\mkern1mu'',t)\psi_s(\vec r,t)  \\
+         & = \frac{1}{2}\sum_s\int d^3r\,\lim_{\substack{\vec r\mkern1mu'\to\vec r\\ t\mkern1mu'\to t}}\left(i\hbar\frac{\partial}{\partial t}+\frac{\hbar^2}{2m}\Delta\right)\erw{\psi_s^{\dagger}(\vec r\mkern1mu',t\mkern1mu')\psi_s(\vec r,t)} \\
+         & = -\frac{i\hbar}{2}\sum_s\int d^3r\,\lim_{\substack{\vec r\mkern1mu'\to\vec r\\ t\mkern1mu'\to t_{+}}}\left(i\hbar\frac{\partial}{\partial t}+\frac{\hbar^2}{2m}\Delta\right)G_{ss}(\vec r,t;\vec r\mkern1mu',t\mkern1mu'_+)
+    \end{aligned}
 \end{equation}
 
-Um von Zeile 1 auf Zeile 2 zu kommen benutzt man Formel: \ref{Heisenberg_Erwartungswert}.  Ausdruck in der 1. Zeile ist bis auf den Faktor $\frac{1}{2}\sum\limits_s \int d^3r$ sowie die Bedingung $t'=t$ identisch mit dem Ausdruck aus der Bewegungsgleichung oben.
+Um von Zeile 1 auf Zeile 2 zu kommen benutzt man die oben angegebene Heisenberg-Erwartungswert-Gleichung. Ausdruck in der 1. Zeile ist bis auf den Faktor $\frac{1}{2}\sum\limits_s \int d^3r$ sowie die Bedingung $t\mkern1mu'=t$ identisch mit dem Ausdruck aus der Bewegungsgleichung oben.
 
-Das zusaetzliche $t'$ dient nur dazu, dass $\partial_t$ ausschliesslich auf $\psi_s(\vec r,t)$ wirkt und nicht auf $\psi_{s\,'}^{\dagger}(\vec r\,',t')$. Das ist dieselbe Begründung wie für das $\vec r'$
+Das zusaetzliche $t\mkern1mu'$ dient nur dazu, dass $\partial_t$ ausschliesslich auf $\psi_s(\vec r,t)$ wirkt und nicht auf $\psi_{s\mkern1mu'}^{\dagger}(\vec r\mkern1mu',t\mkern1mu')$. Das ist dieselbe Begründung wie für das $\vec r\mkern1mu'$
 
 Zusammen folgt:
 
 \begin{equation}
-\begin{aligned}
-\erw{H}
-&= \erw{T}+\erw{V}\\
-&= -\frac{i\hbar}{2}\sum_s\int d^3r\,\lim_{\substack{\vec r\,'\to\vec r\\ t'\to t_{+}}}\left(i\hbar\frac{\partial}{\partial t}-\frac{\hbar^2}{2m}\Delta\right)G_{ss}(\vec r,t;\vec r\,',t')
-\end{aligned}
+    \begin{aligned}
+        \erw{H}
+         & = \erw{T}+\erw{V}                                                                                                                                                                                                          \\
+         & = -\frac{i\hbar}{2}\sum_s\int d^3r\,\lim_{\substack{\vec r\mkern1mu'\to\vec r\\ t\mkern1mu'\to t_{+}}}\left(i\hbar\frac{\partial}{\partial t}-\frac{\hbar^2}{2m}\Delta\right)G_{ss}(\vec r,t;\vec r\mkern1mu',t\mkern1mu')
+    \end{aligned}
 \end{equation}
-3. Folgt im nächsten Abschnitt 
+3. Folgt im nächsten Abschnitt
 
 \lend{Vorl. 13.04.2026}

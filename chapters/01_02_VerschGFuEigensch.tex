@@ -1,1 +1,179 @@
+\subsection[Verschiedene GF und ihre Eigenschaften im thermodynamischen Gleichgewicht]{Verschiedene GF und ihre Eigenschaften}
+
+\subsubsection*{Beschreibung von Propagatoren}
+
+Die Betrachtung ist für ein system im thermodynamischen Gleichgewicht allerdings nicht bei $T=0\equiv$Grundzustand.
+
+\stp{Erwartungswert: $\erw{\dots} = \mathrm{Sp}\!\left\{\varrho\,\dots \right\}$}
+
+\stp{Statistischer Operator: $\varrho = \frac{e^{-\beta( H-\mu N)}}{\mathcal Z}$}
+
+\stp{Zustandssumme: $\mathcal Z = \mathrm{Sp}\!\left\{e^{-\beta( H-\mu N)}\right\}$}
+
+Da hier Operatoren zeitabhängig sind, sind sie im Heisenberg-Bild; $_H$ weggelassen.
+
+\stp{Propagatoren und Green-Funktionen:}
+\begin{align}
+    G^{>}(1,1\mkern1mu') & = -\frac{i}{\hbar}\,\erw{\psi(1)\psi^{\dagger}(1\mkern1mu')},                 \\
+    G^{<}(1,1\mkern1mu') & = +\frac{i}{\hbar}\,\erw{\psi^{\dagger}(1\mkern1mu')\psi(1)},                 \\
+    G(1,1\mkern1mu')     & = -\frac{i}{\hbar}\,\erw{T\!\left[\psi(1)\psi^{\dagger}(1\mkern1mu')\right]}.
+\end{align}
+
+\stp{Vollständiger Satz von Eigenfunktionen:}
+\begin{equation}
+    \mathds{1} = \sum_n \ket{\Phi_n}\bra{\Phi_n},
+\end{equation}
+und
+\begin{equation}
+    H\ket{\Phi_n}=E_n\ket{\Phi_n},\qquad
+    N\ket{\Phi_n}=N_n\ket{\Phi_n}
+\end{equation}
+folgt
+\begin{align}
+    G^{>}(1,1\mkern1mu')
+     & = -\frac{i}{\hbar}\sum_n\bra{\Phi_n}\varrho\,\psi(1)\,\psi^{\dagger}(1\mkern1mu')\ket{\Phi_n}                         \\
+     & = -\frac{i}{\hbar}\sum_n\bra{\Phi_n}\varrho\,\mathds{1}\,\psi(1)\,\mathds{1}\,\psi^{\dagger}(1\mkern1mu')\ket{\Phi_n} \\
+     & = -\frac{i}{\hbar}\sum_{n,m}
+    \underbrace{\bra{\Phi_n}\varrho\ket{\Phi_n}}_{\underbrace{e^{\beta(\Omega-E_n+\mu N_n)}}_{\omega_n} \delta_{nl}}
+    \bra{\Phi_n}\psi(1)\ket{\Phi_m}
+    \bra{\Phi_m}\psi^{\dagger}(1\mkern1mu')\ket{\Phi_n},
+\end{align}
+
+\stp{Für Heisenberg Operatoren gilt:}
+
+\begin{align}
+    \psi(1)                     & = e^{\frac{i}{\hbar}Ht_1}\,\psi_{s_1}(\vec r_1)\,e^{-\frac{i}{\hbar}Ht_1},                                                   \\
+    \psi^{\dagger}(1\mkern1mu') & = e^{\frac{i}{\hbar}Ht_1\mkern1mu'}\,\psi^{\dagger}_{s_1\mkern1mu'}(\vec r_1\mkern1mu')\,e^{-\frac{i}{\hbar}Ht_1\mkern1mu'}.
+\end{align}
+
+Daraus folgt:
+
+\begin{align}
+    \label{eq:G_tdiff}
+    G^{>}(1,1\mkern1mu')
+     & = -\frac{i}{\hbar}\sum_{m,n}\omega_n\,
+    \bra{\Phi_n}\psi_{s_1}(\vec r_1)\ket{\Phi_m}
+    \bra{\Phi_m}\psi^{\dagger}_{s_1\mkern1mu'}(\vec r_1\mkern1mu')\ket{\Phi_n}
+    e^{\frac{i}{\hbar}(E_n-E_m)(t_1-t_1\mkern1mu')},                       \\
+    G^{<}(1,1\mkern1mu')
+     & = \frac{i}{\hbar}\sum_{m,n}\omega_n\,
+    \bra{\Phi_n}\psi^{\dagger}_{s_1\mkern1mu'}(\vec r_1\mkern1mu')\ket{\Phi_m}
+    \bra{\Phi_m}\psi_{s_1}(\vec r_1)\ket{\Phi_n}
+    e^{-\frac{i}{\hbar}(E_n-E_m)(t_1-t_1\mkern1mu')}                       \\
+     & \overset{m\leftrightarrow n}{=} \frac{i}{\hbar}\sum_{m,n}\omega_m\,
+    \bra{\Phi_n}\psi_{s_1}(\vec r_1)\ket{\Phi_m}
+    \bra{\Phi_m}\psi^{\dagger}_{s_1\mkern1mu'}(\vec r_1\mkern1mu')\ket{\Phi_n}
+    e^{\frac{i}{\hbar}(E_n-E_m)(t_1-t_1\mkern1mu')}.
+\end{align}
+
+Aus den Matrixelementen $\bra{\Phi_m}\psi^{\dagger}\ket{\Phi_n}$ und $\bra{\Phi_n}\psi\ket{\Phi_m}$ folgt $N_m=N_n+1$. Das folgt, da nachdem bspw. $\psi^\dagger$ auf $\ket{\Phi_n}$ angewandt wurde, müssen der neue Zustand und $\Phi_m$ dieselbe Anzahl an Teilchen haben. Ansonsten ist $\bra{\Phi_m}\psi^\dagger \ket{\Phi_n} = 0$. Daraus folgt:
+
+\begin{align}
+    \omega_m
+     & = e^{\beta(\Omega-E_m+\mu N_m)}                                                \\
+     & = e^{\beta(\Omega-E_n+\mu N_n)}\,e^{-\beta\left[(E_m-E_n)+\mu(N_m-N_n)\right]} \\
+     & = e^{\beta(\Omega-E_n+\mu N_n)}\,e^{-\beta\left[(E_m-E_n)+\mu\right]}
+\end{align}
+
+\stp{Fouriertransformierte Propagatoren:}
+Allgemein gilt die Fouriertransformation:
+\begin{equation}
+    G^{\gtrless}(\omega)
+    = \int_{-\infty}^{\infty} d(t_1-t_1\mkern1mu')\,e^{i\omega(t_1-t_1\mkern1mu')}\,G^{\gtrless}(t_1-t_1\mkern1mu').
+\end{equation}
+Wir schreiben $G^{\gtrless}(t_1-t_1\mkern1mu')$, weil $G^{\gtrless}$ in der obigen Darstellung effektiv nur von $t_1-t_1\mkern1mu'$ abhängt.
+
+Mit der Definition der Deltafunktion:
+
+\begin{equation}
+    \int_{-\infty}^{\infty} d(t_1-t_1\mkern1mu')\,
+    e^{i\left(\omega-\frac{E_m-E_n}{\hbar}\right)(t_1-t_1\mkern1mu')}
+    =2\pi\,\delta\!\left(\omega-\frac{E_m-E_n}{\hbar}\right).
+\end{equation}
+
+\begin{equation}
+    \delta(ax)=\frac{1}{|a|}\,\delta(x).
+\end{equation}
+
+folgt die Fouriertransformierte:
+\begin{equation}
+    G^{\gtrless}(\omega)=\mp 2\pi i\sum_{m,n}\omega_n\,
+    \underbrace{\left\{\begin{matrix}
+            1 \\
+            e^{-\beta(\hbar\omega-\mu)}
+        \end{matrix}\right.}_{\substack{\text{Unterschied zwischen}\\ G^{>}\text{ und }G^{<}}}\,
+    \erw{\dots}\,\erw{\dots}\,
+    \delta\!\left(\hbar\omega-(E_m-E_n)\right).
+\end{equation}
+
+\subsubsection*{Spektralfunktion}
+
+\begin{equation}
+    \hat G(\omega)=G^{>}(\omega)-G^{<}(\omega)
+\end{equation}
+Ortsargumente sind hier nicht mitgeschrieben.
+
+\stp{Im thermodynamischen Gleichgewicht gilt:}
+\begin{equation}
+    \hat G(\omega)
+    =-2\pi i\sum_{m,n}\omega_n\left(1+e^{-\beta(\hbar\omega-\mu)}\right)
+    \,\erw{\dots}\,\erw{\dots}\,
+    \delta\!\left(\hbar\omega-(E_m-E_n)\right).
+\end{equation}
+Damit hat $\hat G(\omega)$ Peaks an den Übergangsenergien des Vielteilchensystems.
+
+\stp{Zusammenhang zur Fermi-Funktion:}
+\begin{equation}
+    f(\omega)=\frac{1}{e^{\beta(\hbar\omega-\mu)}+1}
+\end{equation}
+
+\begin{equation}
+    \hat G(\omega)=\left(1+e^{-\beta(\hbar\omega-\mu)}\right)G^{>}(\omega)
+\end{equation}
+
+Damit folgt im thermodynamischen Gleichgewicht (KMS-Relation):
+\begin{align}
+    G^{>}(\omega) & = \left[1-f(\omega)\right]\hat G(\omega), \\
+    G^{<}(\omega) & = -f(\omega)\hat G(\omega).
+\end{align}
+$\Rightarrow$ Fluktuations-dissipations-Theorem
+
+\stp{Normierung der Spektralfunktion}
+Ausgehend vom zeitabhängigen Greenschen Funktional $G(\vec r_1,\vec r_1\mkern1mu';t_1-t_1\mkern1mu')$ führt eine Fourier-Transformation in der Zeit zum frequenzabhängigen Ausdruck $G(\vec r_1,\vec r_1\mkern1mu';\omega)$, der weiterhin im Ortsraum definiert ist. Erst durch eine zusätzliche Fourier-Transformation in der Ortsdifferenz $(\vec r_1-\vec r_1\mkern1mu')$ erhält man den impulsaufgelösten Greenschen Funktional $\hat G_{\vec k}(\omega)$. Damit beschreibt $\hat G(\vec r_1,\vec r_1\mkern1mu',\omega)$ lokale spektrale Eigenschaften, während $\hat G_{\vec k}(\omega)$ die energieabhängige Struktur eines Zustands mit Impuls $\vec k$ liefert.
+\begin{align}
+    \hat G(\vec r_1,\vec r_1\mkern1mu',\omega)
+     & = G^{>}(\vec r_1,\vec r_1\mkern1mu',\omega)-G^{<}(\vec r_1,\vec r_1\mkern1mu',\omega) \\
+     & = \int d(t_1-t_1\mkern1mu')\,e^{i\omega(t_1-t_1\mkern1mu')}
+    \left(-\frac{i}{\hbar}\right)
+    \bigl[\erw{\psi(\vec r_1,t_1)\psi^{\dagger}(\vec r_1\mkern1mu',t_1\mkern1mu')}+
+        \erw{\psi^{\dagger}(\vec r_1\mkern1mu',t_1\mkern1mu')\psi(\vec r_1,t_1)}\bigr].
+\end{align}
+
+Daraus folgt die Normierung:
+\begin{align}
+    \int\frac{d\omega}{2\pi}\,\hat G(\vec r_1,\vec r_1\mkern1mu',\omega)
+     & = \int d(t_1-t_1\mkern1mu')
+    \underbrace{\int\frac{d\omega}{2\pi}e^{i\omega(t_1-t_1\mkern1mu')}}_{\delta(t_1-t_1\mkern1mu')}
+    \left(-\frac{i}{\hbar}\right)\erw{\cdots}                                                  \\
+     & = \left(-\frac{i}{\hbar}\right)
+    \bigl[\erw{\psi(\vec r_1,t_1)\psi^{\dagger}(\vec r_1\mkern1mu',t_1)}+
+        \erw{\psi^{\dagger}(\vec r_1\mkern1mu',t_1)\psi(\vec r_1,t_1)}\bigr]_{t=t_1\mkern1mu'} \\
+     & = \left(-\frac{i}{\hbar}\right)\delta(\vec r_1-\vec r_1\mkern1mu').
+\end{align}
+
+Für die impulsaufgelöste Spektralfunktion gilts dann:
+\begin{equation}
+    \hat G_{\vec k}(\omega)=\int d^3(\vec r_1-\vec r_1\mkern1mu')\,e^{-i\vec k\cdot(\vec r_1-\vec r_1\mkern1mu')}\,\hat G(\vec r_1,\vec r_1\mkern1mu',\omega)
+\end{equation}
+\begin{equation}
+    \int\frac{d\omega}{2\pi}\,i\hbar\,\hat G_{\vec k}(\omega)=1.
+\end{equation}
+
+Außerdem ergibt sich für die Zustandsdichte des wechselwirkenden Vielteilchensystems
+\begin{equation}
+    \varrho(\omega)=\int\frac{d^3\vec k}{{(2\pi)}^3}\,i\hbar\,\hat G_{\vec k}(\omega).
+\end{equation}
+
+
+
 \lend{Vorl. 17.04.2026}

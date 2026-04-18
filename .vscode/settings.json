@@ -9,13 +9,22 @@
     "latex-workshop.view.pdf.viewer": "tab",
     "latex-workshop.latex.clean.subfolder.enabled": true,
     "latex-workshop.latex.outDir": "",
-    
+    "latex-workshop.formatting.latex": "latexindent",
+    "latex-workshop.latexindent.path": "C:/Users/basti/AppData/Local/Programs/MiKTeX/miktex/bin/x64/latexindent.exe",
+    "latex-workshop.latexindent.args": [
+        "-l",
+        "-m",
+        "-w",
+        "%DOCFILE%"
+    ],
+    "files.trimTrailingWhitespace": true,
+
     // SyncTeX Konfiguration
     "latex-workshop.synctex.afterBuild.enabled": true,
     "latex-workshop.view.pdf.synctex.enabled": true,
     "latex-workshop.synctex.synctexjs.enabled": true,
     "latex-workshop.view.pdf.internal.synctex.keybinding": "ctrl-click",
-    
+
     "latex-workshop.latex.tools": [
         {
             "name": "pdflatex",
@@ -63,7 +72,7 @@
             "name": "pdflatex ➜ bibtex ➜ pdflatex × 2 ➜ clean-all",
             "tools": [
                 "pdflatex",
-                "bibtex", 
+                "bibtex",
                 "pdflatex",
                 "pdflatex",
                 "clean-all"
@@ -84,7 +93,7 @@
                 "clean"
             ]
         }
-        
+
     ],
     // Copilot-Einstellungen für LaTeX-Dateien
     "[latex]": {
@@ -92,7 +101,9 @@
         "github.copilot.editor.enableAutoCompletions": false,
         "github.copilot.advanced.inlineSuggestEnable": false,
         "editor.inlineSuggest.enabled": false,
-        "editor.suggest.showInlineDetails": false
+        "editor.suggest.showInlineDetails": false,
+        "editor.defaultFormatter": "James-Yu.latex-workshop",
+        "editor.formatOnSave": true
     },
     "[tex]": {
         "github.copilot.enable": false,
@@ -105,7 +116,7 @@
     "github.copilot.enable": false,
     "github.copilot.editor.enableAutoCompletions": false,
     "editor.inlineSuggest.enabled": false,
-    
+
     // Spell Checker Einstellungen
     "cSpell.words": [
         "actinides",

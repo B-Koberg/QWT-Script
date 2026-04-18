@@ -38,6 +38,19 @@
 % --- Literatur (BibTeX) ---
 \usepackage[numbers]{natbib}
 
+
+% --- Commands ---
+
+\providecommand{\ket}[1]{\left|#1\right\rangle}
+\providecommand{\bra}[1]{\left\langle#1\right|}
+\providecommand{\erw}[1]{\left\langle#1\right\rangle}
+\providecommand{\lend}[1]{\begin{flushright}
+        #1\\[-0.8em]
+        \rule{3cm}{0.4pt}
+    \end{flushright}}
+\providecommand{\stp}[1]{\noindent\textbullet\ #1\par}
+
+
 % --- Eigene Befehle (optional) ---
 \newcommand{\todo}[1]{\textcolor{red}{TODO: #1}}
 \newcommand{\vorlesungstitel}{Introduction to Feynman Diagrams and Quantum Field Theory with Applications to Solid State Physics}
@@ -49,14 +62,14 @@
 
 \begin{titlepage}
     \centering
-  \vspace*{3.5cm}
-  {\Huge \textbf{\vorlesungstitel} \par}
-  \vspace{1.2cm}
-  {\Large Vorlesungsmitschrift \par}
-  \vspace{1.8cm}
-  {\large Dozent: \professor \par}
-  \vspace{0.6cm}
-  {\large Mitschrift: \mitschriftvon \par}
+    \vspace*{3.5cm}
+    {\Huge \textbf{\vorlesungstitel} \par}
+    \vspace{1.2cm}
+    {\Large Vorlesungsmitschrift \par}
+    \vspace{1.8cm}
+    {\large Dozent: \professor \par}
+    \vspace{0.6cm}
+    {\large Mitschrift: \mitschriftvon \par}
     \vfill
     {\large \today \par}
 \end{titlepage}
