@@ -50,6 +50,17 @@
     \end{flushright}}
 \providecommand{\stp}[1]{\noindent\textbullet\ #1}
 
+% Ueberschrift zwischen subsection und subsubsection, mit TOC-Eintrag
+\newcounter{subsubmidsection}[subsection]
+\renewcommand{\thesubsubmidsection}{\alph{subsubmidsection}}
+\newcommand{\subsubmidsection}[1]{%
+    \refstepcounter{subsubmidsection}%
+    \addcontentsline{toc}{subsubsection}{\protect\numberline{\thesubsubmidsection\textup{)}}#1}%
+    \par\vspace{0.75\baselineskip}%
+    {\fontsize{13}{15.5}\selectfont\bfseries \thesubsubmidsection\textup{)}\quad #1\par}%
+    \vspace{0.35\baselineskip}%
+}
+
 
 % --- Eigene Befehle (optional) ---
 \newcommand{\todo}[1]{\textcolor{red}{TODO: #1}}
@@ -80,11 +91,15 @@
 \hypersetup{pageanchor=true}
 \pagenumbering{arabic}
 \setcounter{page}{1}
+\setcounter{tocdepth}{3} % Subsubsections im Inhaltsverzeichnis anzeigen
 
 \input{chapters/00_Motivation.tex}
+\newpage
 \input{chapters/01_01_redDichtematrizenPropagtoren.tex}
+\newpage
 \input{chapters/01_02_VerschGFuEigensch.tex}
 \newpage
+\input{chapters/01_03_GFfürFreieTeilchen.tex}
 
 
 \nocite{*}

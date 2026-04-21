@@ -1,5 +1,5 @@
 \subsection[Verschiedene GF und ihre Eigenschaften im thermodynamischen Gleichgewicht]{Verschiedene GF und ihre Eigenschaften}
-
+\subsubmidsection{System im thermodynamischen Gleichgewicht}
 \subsubsection*{Beschreibung von Propagatoren}
 
 Die Betrachtung ist für ein system im thermodynamischen Gleichgewicht allerdings nicht bei $T=0\equiv$Grundzustand.
@@ -163,4 +163,84 @@ Außerdem ergibt sich für die Zustandsdichte des wechselwirkenden Vielteilchens
 \begin{equation}
     \varrho(\omega)=\int\frac{d^3\vec k}{{(2\pi)}^3}\,i\hbar\,\hat G_{\vec k}(\omega).
 \end{equation}
-\lend{Vorl. 17.04.2026}
+\lend{Vorl. 16.04.2026}
+
+\subsubmidsection{Lehmanndarstellung für zeitgeordnete GF.}
+
+Ausgangspunkt ist die zeitgeordnete Green-Funktion:
+\begin{equation}
+    G(1,1\mkern1mu')=\Theta(t_1-t_1\mkern1mu')\,G^{>}(1,1\mkern1mu')+\Theta(t_1\mkern1mu'-t_1)\,G^{<}(1,1\mkern1mu').
+\end{equation}
+\stp{Im thermodynamischen Gleichgewicht oder im stationären Fall hängt sie nur von der Zeitdifferenz $\tau=t_1-t_1\mkern1mu'$ ab} $\rightarrow G(t_1,t_1\mkern1mu') = G(t_1-t_1\mkern1mu')$\\
+\stp{Ortsargumente erneut weggelassen $\rightarrow 1 = \vec r_1,s_1,t_1$}
+
+Ansonsten gilt:
+\begin{equation}
+    \label{f:FormelFürFourier}
+    \begin{aligned}
+        G(\omega)                                                                          & = \int_{-\infty}^{\infty} d\tau\,e^{i\omega\tau}G(\tau),                                                                      \\
+        G^{\gtrless}(\tau)                                                                 & = \frac{1}{2\pi}\int_{-\infty}^{\infty} d\omega'\,e^{-i\omega'\tau}G^{\gtrless}(\omega'),                                     \\
+        \Theta(\tau)                                                                       & = \frac{1}{2\pi i}\int_{-\infty}^{\infty} d\omega'\,\frac{e^{-i\omega'\tau}}{\omega'-i\varepsilon},\qquad \varepsilon\to 0^+. \\
+        \frac{1}{2\pi} \int d\tau e^{i(\omega \pm \omega\mkern1mu''-\omega\mkern1mu')\tau} & = \delta(\omega \pm \omega\mkern1mu''-\omega\mkern1mu')
+    \end{aligned}
+\end{equation}
+Damit folgt für die zeitgeordnete GF im Frequenzraum
+\begin{align}
+    G(\omega)
+     & = \int d\tau\,\frac{1}{2\pi i}\int d\omega\mkern1mu''\,\frac{1}{2\pi}\int d\omega'\,
+    \left[
+        e^{i(\omega+\omega\mkern1mu''-\omega')\tau}\,\frac{G^{>}(\omega')}{\omega\mkern1mu''-i\varepsilon}
+        +e^{i(\omega-\omega\mkern1mu''-\omega')\tau}\,\frac{G^{<}(\omega')}{\omega\mkern1mu''-i\varepsilon}
+        \right] \notag \\
+     & = -\frac{1}{2\pi i}\int d\omega'\left[
+                                           \frac{G^{>}(\omega')}{\omega-\omega'+i\varepsilon}
+                                           -\frac{G^{<}(\omega')}{\omega-\omega'-i\varepsilon}
+                                           \right],\qquad \varepsilon\to 0^+.
+\end{align}
+
+Interpretation (Lehmann-Darstellung): Unter Benutzung der Fourier-transformierten Propagatoren $G^{\gtrless}(\omega)$ (als Summen über Deltafunktionen an den Uebergangsenergien des wechselwirkenden Vielteilchensystems) folgt:
+Die zeitgeordnete GF besitzt Pole sowohl in der oberen Halbebene als auch in der unteren Halbebene der komplexen Frequenzebene.
+
+Speziell für $T=0$ gilt:
+\begin{equation*}
+    f(\omega) = \Theta(\mu-\hbar\omega)
+\end{equation*}
+Was zusammen mit der KMS-Relation dazu fürht, dass:\\SS
+\stp{Für $\hbar\omega<\mu$ ist $f(\omega)=1$, daher verschwindet $G^{>}(\omega)$ und nur $G^{<}(\omega)$ bleibt ungleich null.}\\
+\stp{Für $\hbar\omega>\mu$ ist $f(\omega)=0$, daher verschwindet $G^{<}(\omega)$ und nur $G^{>}(\omega)$ trägt bei.}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Pictures/PoleInLehmann.png}
+    \caption{Beitragsbereiche von $G^{<}(\omega)$ und $G^{>}(\omega)$ bei $T=0$ relativ zum chemischen Potential $\mu$.}
+\end{figure}
+
+\subsubmidsection{Retardierte und avancierte GF}
+
+\begin{align}
+    G^{r}(1,1\mkern1mu') & = \Theta(t_1-t_1\mkern1mu')\left[G^{>}(1,1\mkern1mu')-G^{<}(1,1\mkern1mu')\right], \\
+    G^{a}(1,1\mkern1mu') & = \Theta(t_1\mkern1mu'-t_1)\left[G^{>}(1,1\mkern1mu')-G^{<}(1,1\mkern1mu')\right].
+\end{align}
+
+Damit gilt aequivalent:
+\begin{align}
+    G^{r}(1,1\mkern1mu')
+     & =
+    \begin{cases}
+        -\dfrac{i}{\hbar}\,\erw{\psi(1)\psi^{\dagger}(1\mkern1mu')+\psi^{\dagger}(1\mkern1mu')\psi(1)}, & t_1>t_1\mkern1mu', \\
+        0,                                                                                              & t_1<t_1\mkern1mu',
+    \end{cases} \\
+    G^{a}(1,1\mkern1mu')
+     & =
+    \begin{cases}
+        0,                                                                                              & t_1>t_1\mkern1mu', \\
+        +\dfrac{i}{\hbar}\,\erw{\psi(1)\psi^{\dagger}(1\mkern1mu')+\psi^{\dagger}(1\mkern1mu')\psi(1)}, & t_1<t_1\mkern1mu'.
+    \end{cases}
+\end{align}
+
+\stp{$G^r$ und $G^a$ erzeugen den Plus-Kommutator (Antikommutator) der Fermionoperatoren zu unterschiedlichen Zeiten (theoretisch ein vierter Vorteil).}
+
+\stp{Fouriertransformierte von $G^{r,a}$:}
+\begin{equation}
+    G^{r,a}(\omega)=-\frac{1}{2\pi i}\int_{-\infty}^{\infty} d\omega'\,\frac{\hat G(\omega')}{\omega-\omega'\pm i\varepsilon}.
+\end{equation}
+Oberes Vorzeichen für $G^r$, unteres Vorzeichen fuer $G^a$.

@@ -1,0 +1,102 @@
+\subsection{Green-Funktionen für freie Teilchen}
+
+\subsubsection*{Hamiltonoperator und Heisenberg-Gleichung}
+
+\stp{Betrachten Teilchen mit Spin $s$; dieser wird im Folgenden nicht mitgeschrieben.}
+
+\stp{Hamiltonoperator:}
+\begin{equation}
+    H = \int d^3r\,\psi^{\dagger}(\vec r,t)\left(-\frac{\hbar^2}{2m}\Delta\right)\psi(\vec r,t).
+\end{equation}
+
+\stp{Heisenberg-Bewegungsgleichung für Feldoperatoren:}
+\begin{equation}
+    i\hbar\,\frac{\partial}{\partial t}\psi(\vec r,t)
+    = \bigl[\psi(\vec r,t),H\bigr]
+    = -\frac{\hbar^2}{2m}\Delta\,\psi(\vec r,t).
+\end{equation}
+\qquad $\hookrightarrow \psi$ ist Operator; $\Delta$ wirkt nicht direkt auf $\psi$
+
+\subsubsection*{Darstellung der Feldoperatoren in der Basis ebener Wellen}
+
+Die Entwicklung des Feldoperators in Basis ebener Wellen:
+\begin{equation}
+    \psi(\vec r,t)=\sum_{\vec k} a_{\vec k}(t)\,\varphi_{\vec k}(\vec r).
+\end{equation}
+Die Einteilchenfunktionen sind ein vollständiges Orthonormalsystem und erfüllen die freie Schrödinger-Gleichung:
+\begin{equation}
+    \left(-\frac{\hbar^2}{2m}\Delta\right)\varphi_{\vec k}(\vec r)=E_{\vec k}\,\varphi_{\vec k}(\vec r).
+\end{equation}
+Für ebene Wellen gilt:
+\begin{equation}
+    \varphi_{\vec k}(\vec r)=\frac{1}{\sqrt{V}}\,e^{i\vec k\cdot\vec r},
+    \qquad
+    E_{\vec k}=\frac{\hbar^2 k^2}{2m}.
+\end{equation}
+Einsetzen in die Heisenberg-Gleichung liefert:
+\begin{equation}
+    \label{f:zeitentwOperatoren}
+    \begin{aligned}
+        i\hbar\,\frac{\partial}{\partial t}\sum_{\vec k} a_{\vec k}(t)\,\varphi_{\vec k}(\vec r)
+         & = \sum_{\vec k} E_{\vec k}\,a_{\vec k}(t)\,\varphi_{\vec k}(\vec r),                                         \\
+        \Rightarrow\quad i\hbar\,\frac{\partial}{\partial t}a_{\vec k}(t)
+         & = E_{\vec k}\,a_{\vec k}(t),                                                                                 \\
+        \Rightarrow\quad \underbrace{a_{\vec k}(t)}_{\text{Operator}}
+         & = \underbrace{a_{\vec k}}_{\substack{\text{Operator}\\\text{zur Zeit }0}}\,e^{-\frac{i}{\hbar}E_{\vec k} t}.
+    \end{aligned}
+\end{equation}
+
+\subsubsection*{Retardierte und avancierte GF}
+\begin{equation}
+    \begin{aligned}
+        G^{r,a}(1,1\mkern1mu')
+         & = \pm\Theta\!\bigl(\pm(t_1-t_1\mkern1mu')\bigr)\left[G^{>}(1,1\mkern1mu')-G^{<}(1,1\mkern1mu')\right]                                                      \\
+         & = \pm\Theta\!\bigl(\pm(t_1-t_1\mkern1mu')\bigr)\left(-\frac{i}{\hbar}\right)\,\erw{\psi(1)\psi^{\dagger}(1\mkern1mu')+\psi^{\dagger}(1\mkern1mu')\psi(1)}. \\
+         & = \pm\Theta\!\bigl(\pm(t_1-t_1\mkern1mu')\bigr)\left(-\frac{i}{\hbar}\right)
+        \sum_{\vec k,\vec k\mkern1mu'}
+        \left[\erw{a_{\vec k}(t_1)a^{\dagger}_{\vec k\mkern1mu'}(t_1\mkern1mu')}+\erw{a^{\dagger}_{\vec k\mkern1mu'}(t_1\mkern1mu')a_{\vec k}(t_1)}\right]
+        \frac{1}{V}e^{i(\vec k\cdot\vec r_1-i\vec k\mkern1mu'\cdot\vec r_1\mkern1mu')}
+    \end{aligned}
+\end{equation}
+
+Räumlich homogenes System $\rightarrow$ es muss $G(\vec r,\vec r\mkern1mu')$ =  $G(\vec r-\vec r\mkern1mu')$ $\Rightarrow \erw{a_{\vec k}a^{\dagger}_{\vec k\mkern1mu'}}=\erw{a_{\vec k}a^{\dagger}_{\vec k}}\,\delta_{\vec k,\vec k\mkern1mu'}$\\
+Sieht man in der Exponentialfunktion sehr gut. Bedeutet effektiv $\vec k = \vec k \mkern1mu'$
+\begin{equation}
+    G^{r,a}(1,1\mkern1mu')
+    = \frac{1}{V}\sum_{\vec k}e^{i\vec k\cdot(\vec r_1-\vec r_1\mkern1mu')}
+    G^{r,a}_{\vec k}(t_1,t_1\mkern1mu').
+\end{equation}
+mit
+\begin{equation}
+    G^{r,a}_{\vec k}(t_1,t_1\mkern1mu')
+    = \pm\Theta\!\bigl(\pm(t_1-t_1\mkern1mu')\bigr)\left(-\frac{i}{\hbar}\right)
+    \left[\erw{a_{\vec k}(t_1)a^{\dagger}_{\vec k}(t_1\mkern1mu')}+\erw{a^{\dagger}_{\vec k}(t_1\mkern1mu')a_{\vec k}(t_1)}\right].
+\end{equation}
+
+Mit der Zeitentwicklung der Operatoren (\autoref{f:zeitentwOperatoren}) folgt
+\begin{equation}
+    G^{r,a}_{\vec k}(t_1,t_1\mkern1mu')
+    = \pm\Theta\!\bigl(\pm(t_1-t_1\mkern1mu')\bigr)\left(-\frac{i}{\hbar}\right)
+    \underbrace{\erw{a_{\vec k}a^{\dagger}_{\vec k}+a^{\dagger}_{\vec k}a_{\vec k}}}_{=1\;\text{(Fermi-Antikommutator)}}
+    e^{-\frac{i}{\hbar}E_{\vec k}(t_1,t_1\mkern1mu')}
+\end{equation}
+\begin{equation}
+    \Rightarrow G^{r,a}_{\vec k}(t_1,t_1\mkern1mu') = G^{r,a}_{\vec k}(t_1-t_1\mkern1mu')
+\end{equation}
+
+Die Fourier-Transformation ähnlich wie bei der Lehman oben mit \autoref{f:FormelFürFourier}:
+\begin{equation}
+    \begin{aligned}
+        G^{r,a}_{\vec k}(\omega) & =\int_{-\infty}^{\infty} d\tau\,e^{i\omega\tau}G^{r,a}_{\vec k}(\tau)                                                                                                               \\
+                                 & = \in d\tau \frac{1}{2\pi i} \int d\omega\mkern1mu'\bigl(\mp\frac{i}{\hbar}\bigr)e^{i(\omega\pm\omega\mkern1mu'-\frac{E_{\vec k}}{\hbar})\tau} \frac{1}{\omega\mkern1mu'-i\epsilon} \\
+                                 & = \mp \frac 1 \hbar \frac{1}{\mp \omega \pm \frac{E_{\vec k}}{\hbar} - i\epsilon }
+    \end{aligned}
+\end{equation}
+liefert die Darstellung der retardierten und avancierten zeitgeordnete Gf im Frequenzraum
+\begin{equation}
+    G^{r}_{\vec k}(\omega)=\frac{1}{\hbar\omega-E_{\vec k}+i\varepsilon},
+    \qquad
+    G^{a}_{\vec k}(\omega)=\frac{1}{\hbar\omega-E_{\vec k}-i\varepsilon}.
+\end{equation}
+
+\lend{Vorl. 20.04.2026}
