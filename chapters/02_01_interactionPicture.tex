@@ -1,0 +1,99 @@
+\section{\texorpdfstring{Diagram-Methode für $T=0 \leftrightarrow$ Grundzustand}{Diagram-Methode für T=0 <-> Grundzustand}}
+\subsection{Wechselwirkungs-Bild}
+
+Wir zerlegen den Hamiltonoperator in
+\begin{equation}
+    H=H_0+H_{\mathrm{int}}.
+\end{equation}
+Dabei sei das Eigenwertproblem von $H_0$ lösbar. Ziel ist es, den Einfluss von $H_{\mathrm{int}}$ systematisch zu beruecksichtigen.
+
+\subsubsection*{Vergleich der Bilder}
+
+\begin{center}
+    \renewcommand{\arraystretch}{1.4}
+    \begin{tabular}{@{}lll@{}}
+        \toprule
+        Bild         & Operatoren                                                                                                      & Wellenfunktion / Zustand                                                                    \\
+        \midrule
+        Schroedinger & $\dfrac{\partial}{\partial t}A_S=0$                                                                             & $i\hbar\,\dfrac{\partial}{\partial t}\ket{\phi_S(t)}=(H_0+H_{\mathrm{int}})\ket{\phi_S(t)}$ \\
+        Heisenberg   & $A_H(t)=e^{\frac{i}{\hbar}(H_0+H_{\mathrm{int}})(t-t_0)}A_S\,e^{-\frac{i}{\hbar}(H_0+H_{\mathrm{int}})(t-t_0)}$ & $\dfrac{\partial}{\partial t}\ket{\phi_H}=0$                                                \\
+        Interaction  & $A_0(t)=e^{\frac{i}{\hbar}H_0(t-t_0)}A_S\,e^{-\frac{i}{\hbar}H_0(t-t_0)}$                                       & $i\hbar\,\dfrac{\partial}{\partial t}\ket{\phi_0(t)}=H_{\mathrm{int}}^{(0)}\ket{\phi_0(t)}$ \\
+        \bottomrule
+    \end{tabular}
+\end{center}
+
+Zur Herleitung der Wellenfunktion im WW-Bild benutzen wir die Picture-Unabhaengigkeit des Erwartungswertes:
+\begin{equation}
+    \langle A\rangle
+    =\langle\phi_S(t)|A_S|\phi_S(t)\rangle
+    =\underbrace{\langle\phi_0(t)|}_{\text{Zustand im WW-Bild}}
+    \,\underbrace{e^{\frac{i}{\hbar}H_0(t-t_0)}A_S\,e^{-\frac{i}{\hbar}H_0(t-t_0)}}_{\text{Operator }A_0(t)\text{ im WW-Bild}}
+    \,\underbrace{|\phi_0(t)\rangle}_{\text{Zustand im WW-Bild}}.
+\end{equation}
+Dabei haben wir im Prinzip zwei Einsen eingefügt und benutzt, dass:
+\begin{equation}
+    |\phi_0(t)\rangle=e^{\frac{i}{\hbar}H_0(t-t_0)}|\phi_S(t)\rangle.
+\end{equation}
+Nun folgt die Bewegungsgleichung im WW-Bild direkt durch Ableiten:
+\begin{equation}
+    \begin{aligned}
+        i\hbar\,\frac{\partial}{\partial t}|\phi_0(t)\rangle
+         & = i\hbar\,\frac{\partial}{\partial t}\left(e^{\frac{i}{\hbar}H_0(t-t_0)}|\phi_S(t)\rangle\right)                                                 \\
+         & = -H_0e^{\frac{i}{\hbar}H_0(t-t_0)}|\phi_S(t)\rangle
+        +e^{\frac{i}{\hbar}H_0(t-t_0)}\left(i\hbar\,\frac{\partial}{\partial t}|\phi_S(t)\rangle\right)                                                     \\
+         & = -H_0e^{\frac{i}{\hbar}H_0(t-t_0)}|\phi_S(t)\rangle
+        +e^{\frac{i}{\hbar}H_0(t-t_0)}(H_0+H_{\mathrm{int}})|\phi_S(t)\rangle                                                                               \\
+         & = e^{\frac{i}{\hbar}H_0(t-t_0)}H_{\mathrm{int}}|\phi_S(t)\rangle                                                                                 \\
+         & = e^{\frac{i}{\hbar}H_0(t-t_0)}H_{\mathrm{int}}e^{-\frac{i}{\hbar}H_0(t-t_0)}|\phi_0(t)\rangle                                                   \\
+         & = \underbrace{e^{\frac{i}{\hbar}H_0(t-t_0)}H_{\mathrm{int}}e^{-\frac{i}{\hbar}H_0(t-t_0)}}_{\equiv\,H_{\mathrm{int}}^{(0)}(t)}|\phi_0(t)\rangle.
+    \end{aligned}
+\end{equation}
+Genutzt wurde hier einmal die Schrödinger-Gleichung und der Fakt, dass $H_0$ mit sich selbst und mit sich selbst im Exponent $(e^{H_0})$ kommutiert. Außerdem wurde erneut eine 1 eingefügt um aus dem Schrödinger-Zustand einen WW-Zustand zu machen.
+
+Damit gilt
+\begin{equation}
+    i\hbar\,\frac{\partial}{\partial t}|\phi_0(t)\rangle=H_{\mathrm{int}}^{(0)}(t)|\phi_0(t)\rangle.
+\end{equation}
+Hinweis: $H_0$ und $H_{\mathrm{int}}$ müssen dabei im Allgemeinen nicht kommutieren.
+
+\subsubsection*{Formale Lösung der Bewegungsgleichung im WW-Bild}
+\begin{equation}
+    \label{eq:ww-eom}
+    i\hbar\,\frac{\partial}{\partial t}|\phi_0(t)\rangle
+    =H_{\mathrm{int}}^{(0)}(t)|\phi_0(t)\rangle.
+\end{equation}
+Fuer einen kleinen Zeitschritt $\delta t$:
+\begin{equation}
+    \begin{aligned}
+        |\phi_0(t+\delta t)\rangle & \approx |\phi_0(t)\rangle+\delta|\phi_0(t)\rangle                                        \\
+                                   & =|\phi_0(t)\rangle-\frac{i}{\hbar}H_{\mathrm{int}}^{(0)}(t)\,\delta t\,|\phi_0(t)\rangle \\
+                                   & = e^{-\frac{i}{\hbar}H_{\mathrm{int}}^{(0)}(t)\,\delta t}|\phi_0(t)\rangle
+        \qquad \text{Exponentialnaeerung für kleines }\delta t
+    \end{aligned}
+\end{equation}
+Diese Allgemeine Formel können wir nun benutzen um das Intervall $[t_1,t_2]$ in vorerst endlich viele Teile Zeitintervalle $\delta t$ zu teilen. Damit ist die gesamte Zeitentwicklung als Aneinanderreihung der $\delta t$ Zeitentwicklungen zu verstehen. Die Zeitintervalle werden unendlich klein für eine exakte Darstellung.
+\begin{equation}
+    \begin{aligned}
+        |\phi_0(t_2)\rangle
+         & = \lim \limits_{\delta t \to 0}\cdots e^{-\frac{i}{\hbar}H_{\mathrm{int}}^{(0)}(t_{a})\delta t}
+        e^{-\frac{i}{\hbar}H_{\mathrm{int}}^{(0)}(t_1)\delta t}\cdots
+        |\phi_0(t_1)\rangle,                                                                               \\
+         & =\lim \limits_{\delta t \to 0}\mathcal T\prod_{t_i=t_1}^{t_2-\delta t}
+        e^{-\frac{i}{\hbar}H_{\mathrm{int}}^{(0)}(t_i)\delta t}|\phi_0(t_1)\rangle,
+    \end{aligned}
+\end{equation}
+Nun ziehen wir das Produkt in die Exponentialfunktion als Summe und lassen $\delta t$ gegen 0 gehen, wodurch die Summe zu einem Integral wird.
+Der Operator $\mathcal{T}$ sorgt für die richtige Zeitordnung der Exponentialfunktionen.
+\begin{equation}
+    |\phi_0(t_2)\rangle
+    =\mathcal T\exp\!\left[-\frac{i}{\hbar}\int_{t_1}^{t_2}d\tau\,H_{\mathrm{int}}^{(0)}(\tau)\right]|\phi_0(t_1)\rangle.
+\end{equation}
+Schliesslich:
+\begin{equation}
+    \begin{aligned}
+        |\phi_0(t_2)\rangle=S(t_2,t_1)|\phi_0(t_1)\rangle, \\
+        S(t_2,t_1)=\mathcal T\exp\!\left[-\frac{i}{\hbar}\int_{t_1}^{t_2}d\tau\,H_{\mathrm{int}}^{(0)}(\tau)\right].
+    \end{aligned}
+\end{equation}
+
+\lend{24.04.2026}

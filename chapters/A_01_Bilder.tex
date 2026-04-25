@@ -1,0 +1,99 @@
+\section{Schroedinger-, Heisenberg- und Dirac/Wechselwirkungs-Bild }
+
+In der Quantenmechanik kann dieselbe Physik in verschiedenen Darstellungen formuliert werden. Die am haeufigsten verwendeten sind das Schroedinger-Bild, das Heisenberg-Bild und das Dirac-Bild (Interaction Picture). Sie unterscheiden sich nur darin, welcher Anteil der Zeitentwicklung den Zustaenden bzw. den Operatoren zugeordnet wird. Messbare Groessen sind in allen drei Bildern identisch.
+
+\subsubsection*{Schroedinger-Bild}
+
+Im Schroedinger-Bild tragen die Zustaende die Zeitabhaengigkeit, waehrend Operatoren (sofern sie nicht explizit zeitabhaengig sind) zeitunabhaengig bleiben. Fuer einen Zustand $\ket{\psi_S(t)}$ gilt
+\begin{equation}
+    i\hbar\,\frac{\partial}{\partial t}\ket{\psi_S(t)}=H\ket{\psi_S(t)}.
+\end{equation}
+Die Zeitableitung eines Operators ergibt sich nur aus seiner expliziten Zeitabhaengigkeit:
+\begin{equation}
+    \frac{d}{dt}A_S=\frac{\partial}{\partial t}A_S.
+\end{equation}
+Ist der Hamiltonoperator zeitunabhaengig, dann ist die Loesung
+\begin{equation}
+    \ket{\psi_S(t)}=U(t,t_0)\ket{\psi_S(t_0)},
+    \qquad
+    U(t,t_0)=e^{-\frac{i}{\hbar}H(t-t_0)}.
+\end{equation}
+Fuer Erwartungswerte folgt
+\begin{equation}
+    \langle A\rangle_t=\bra{\psi_S(t)}A_S\ket{\psi_S(t)}.
+\end{equation}
+Setzt man $\ket{\psi_S(t)}=U(t,t_0)\ket{\psi_S(t_0)}$ ein, erhaelt man die direkte Gegenueberstellung von Schroedinger- und Heisenberg-Bild:
+\begin{equation}
+    \begin{aligned}
+        \langle A\rangle_t
+         & = \underbrace{\bra{\psi_S(t_0)}U^{\dagger}(t,t_0)}_{\text{Schroedinger: Zustand}}
+        \,\underbrace{A_S}_{\text{Operator}}\,
+        \underbrace{U(t,t_0)\ket{\psi_S(t_0)}}_{\text{Schroedinger: Zustand}}                \\
+         & = \underbrace{\bra{\psi_H}}_{\text{Heisenberg: Zustand}}
+        \,\underbrace{\bigl(U^{\dagger}(t,t_0)A_SU(t,t_0)\bigr)}_{\text{Heisenberg: Operator }A_H(t)}\,
+        \underbrace{\ket{\psi_H}}_{\text{Heisenberg: Zustand}}.
+    \end{aligned}
+\end{equation}
+
+\subsubsection*{Heisenberg-Bild}
+
+Im Heisenberg-Bild wird die Zeitentwicklung vollstaendig auf die Operatoren verschoben. Die Zustaende sind (bei zeitunabhaengigem $H$) konstant, z.B.
+\begin{equation}
+    \ket{\psi_H}=\ket{\psi_S(t_0)}.
+\end{equation}
+Damit gilt unmittelbar
+\begin{equation}
+    \frac{d}{dt}\ket{\psi_H}=0.
+\end{equation}
+Die zugehoerigen Operatoren lauten
+\begin{equation}
+    A_H(t)=U^{\dagger}(t,t_0)A_SU(t,t_0).
+\end{equation}
+Fuer zeitunabhaengiges $H$ ist das aequivalent zu
+\begin{equation}
+    A_H(t)=e^{\frac{i}{\hbar}H(t-t_0)}A_Se^{-\frac{i}{\hbar}H(t-t_0)}.
+\end{equation}
+Daraus folgt die Heisenberg-Gleichung
+\begin{equation}
+    i\hbar\,\frac{d}{dt}A_H(t)=\left[A_H(t),H\right]+i\hbar\left(\frac{\partial A_S}{\partial t}\right)_H.
+\end{equation}
+Fuer Operatoren ohne explizite Zeitabhaengigkeit bleibt nur der Kommutatorterm. Erwartungswerte sind unveraendert:
+\begin{equation}
+    \langle A\rangle_t=\bra{\psi_H}A_H(t)\ket{\psi_H}.
+\end{equation}
+
+\subsubsection*{Dirac-Bild / Interaction Picture}
+
+Das Interaction Picture ist besonders nuetzlich fuer Stoerungstheorie und Feynman-Diagramme. Man zerlegt den Hamiltonoperator in
+\begin{equation}
+    H=H_0+V,
+\end{equation}
+wobei $H_0$ der exakt loesbare Teil und $V$ die Wechselwirkung ist. Dann wird die "freie" Dynamik mit $H_0$ auf die Operatoren gelegt, waehrend die zusaetzliche Dynamik durch $V$ in den Zustaenden bleibt:
+\begin{equation}
+    A_I(t)=e^{\frac{i}{\hbar}H_0(t-t_0)}A_Se^{-\frac{i}{\hbar}H_0(t-t_0)},
+\end{equation}
+\begin{equation}
+    \ket{\psi_I(t)}=e^{\frac{i}{\hbar}H_0(t-t_0)}\ket{\psi_S(t)}.
+\end{equation}
+Die Zustaende erfuellen damit
+\begin{equation}
+    i\hbar\,\frac{\partial}{\partial t}\ket{\psi_I(t)}=V_I(t)\ket{\psi_I(t)},
+\end{equation}
+mit
+\begin{equation}
+    V_I(t)=e^{\frac{i}{\hbar}H_0(t-t_0)}Ve^{-\frac{i}{\hbar}H_0(t-t_0)}.
+\end{equation}
+Die zugehoerige Zeitentwicklungsoperatorgleichung lautet
+\begin{equation}
+    i\hbar\,\frac{\partial}{\partial t}U_I(t,t_0)=V_I(t)U_I(t,t_0),
+    \qquad U_I(t_0,t_0)=\mathds{1}.
+\end{equation}
+Ihre formale Loesung ist die Dyson-Reihe
+\begin{equation}
+    U_I(t,t_0)=\mathcal{T}\exp\left[-\frac{i}{\hbar}\int_{t_0}^{t}dt'\,V_I(t')\right],
+\end{equation}
+mit dem Zeitordnungsoperator $\mathcal{T}$. Genau diese Struktur wird in der Vielteilchenphysik fuer Greensche Funktionen und Diagrammtechniken verwendet.
+
+\subsubsection*{Physikalische Einordnung}
+
+Die drei Bilder sind mathematisch aequivalente Beschreibungen derselben Theorie. Das Schroedinger-Bild ist oft der intuitivste Startpunkt. Das Heisenberg-Bild ist fuer Operatorgleichungen und Erhaltungssaetze besonders klar. Das Interaction Picture kombiniert beide Vorteile: freie Ausbreitung steckt in den Operatoren, Wechselwirkungen in den Zustaenden. Deshalb ist es die natuerliche Sprache fuer Streuprozesse, Selbstenergien, renormierte Quasiteilchen und die systematische Entwicklung in Stoerungsordnungen.
