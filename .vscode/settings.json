@@ -3,119 +3,54 @@
     "editor.wordWrap": "on",
     //"editor.wordWrapColumn": 80,
     //"editor.rulers": [80],
-    "latex-workshop.latex.autoBuild.run": "onSave",
-    "latex-workshop.latex.autoBuild.cleanAndRetry.enabled": true,
-    "latex-workshop.latex.recipe.default": "pdflatex ➜ clean",
-    "latex-workshop.view.pdf.viewer": "tab",
-    "latex-workshop.latex.clean.subfolder.enabled": true,
-    "latex-workshop.latex.outDir": "",
     "latex-workshop.formatting.latex": "latexindent",
-    "latex-workshop.latexindent.path": "C:/Users/basti/AppData/Local/Programs/MiKTeX/miktex/bin/x64/latexindent.exe",
-    "latex-workshop.latexindent.args": [
-        "-l",
-        "-m",
-        "-w",
-        "%DOCFILE%"
+    "latex-workshop.latex.autoClean.run": "off",
+    "latex-workshop.latex.clean.method": "glob",
+    "latex-workshop.latex.clean.subfolder.enabled": true,
+    "latex-workshop.latex.clean.fileTypes": [
+        "*.aux",
+        "*.auxlock",
+        "*.bbl",
+        "*.bcf",
+        "*.blg",
+        "*.brf",
+        "*.dvi",
+        "*.ilg",
+        "*.ist",
+        "*.idx",
+        "*.ind",
+        "*.lof",
+        "*.lot",
+        "*.log",
+        "*.nav",
+        "*.out",
+        "*.snm",
+        "*.thm",
+        "*.run.xml",
+        "*.toc",
+        "*.vrb",
+        "*.xdv",
+        "*.acn",
+        "*.acr",
+        "*.alg",
+        "*.glg",
+        "*.glo",
+        "*.gls",
+        "*.fls",
+        "*.fdb_latexmk"
     ],
     "files.trimTrailingWhitespace": true,
 
-    // SyncTeX Konfiguration
-    "latex-workshop.synctex.afterBuild.enabled": true,
-    "latex-workshop.view.pdf.synctex.enabled": true,
-    "latex-workshop.synctex.synctexjs.enabled": true,
-    "latex-workshop.view.pdf.internal.synctex.keybinding": "ctrl-click",
-
-    "latex-workshop.latex.tools": [
-        {
-            "name": "pdflatex",
-            "command": "pdflatex",
-            "args": [
-                "-synctex=1",
-                "-interaction=nonstopmode",
-                "-file-line-error",
-                "%DOC%"
-            ]
-        },
-        {
-            "name": "bibtex",
-            "command": "bibtex",
-            "args": [
-                "%DOCFILE%"
-            ]
-        },
-        {
-            "name": "biber",
-            "command": "biber",
-            "args": [
-                "%DOCFILE%"
-            ]
-        },
-        {
-            "name": "clean",
-            "command": "powershell",
-            "args": [
-                "-Command",
-                "Get-ChildItem -Path . -Recurse -Include '*.aux', '*.bbl', '*.bcf', '*.blg', '*.brf', '*.log', '*.out', '*.toc', '*.fls', '*.fdb_latexmk', '*.lot', '*.run.xml' | Remove-Item -Force -ErrorAction SilentlyContinue"
-            ]
-        },
-        {
-            "name": "clean-all",
-            "command": "powershell",
-            "args": [
-                "-Command",
-                "Get-ChildItem -Path . -Recurse -Include '*.aux', '*.bbl', '*.bcf', '*.blg', '*.brf', '*.log', '*.out', '*.toc', '*.fls', '*.fdb_latexmk', '*.lot', '*.run.xml', '*.synctex.gz' | Remove-Item -Force -ErrorAction SilentlyContinue"
-            ]
-        }
-    ],
-    "latex-workshop.latex.recipes": [
-        {
-            "name": "pdflatex ➜ bibtex ➜ pdflatex × 2 ➜ clean-all",
-            "tools": [
-                "pdflatex",
-                "bibtex",
-                "pdflatex",
-                "pdflatex",
-                "clean-all"
-            ]
-        },
-        {
-            "name": "pdflatex × 2 ➜ clean",
-            "tools": [
-                "pdflatex",
-                "pdflatex",
-                "clean"
-            ]
-        },
-        {
-            "name": "pdflatex ➜ clean",
-            "tools": [
-                "pdflatex",
-                "clean"
-            ]
-        }
-
-    ],
     // Copilot-Einstellungen für LaTeX-Dateien
     "[latex]": {
-        "github.copilot.enable": false,
-        "github.copilot.editor.enableAutoCompletions": false,
-        "github.copilot.advanced.inlineSuggestEnable": false,
-        "editor.inlineSuggest.enabled": false,
-        "editor.suggest.showInlineDetails": false,
         "editor.defaultFormatter": "James-Yu.latex-workshop",
         "editor.formatOnSave": true
     },
-    "[tex]": {
-        "github.copilot.enable": false,
-        "github.copilot.editor.enableAutoCompletions": false,
-        "github.copilot.advanced.inlineSuggestEnable": false,
-        "editor.inlineSuggest.enabled": false,
-        "editor.suggest.showInlineDetails": false
-    },
+
     // Alternative: Copilot komplett für diesen Workspace deaktivieren
-    "github.copilot.enable": false,
-    "github.copilot.editor.enableAutoCompletions": false,
-    "editor.inlineSuggest.enabled": false,
+    "github.copilot.enable": true,
+    "github.copilot.editor.enableAutoCompletions": true,
+    "editor.inlineSuggest.enabled": true,
 
     // Spell Checker Einstellungen
     "cSpell.words": [
