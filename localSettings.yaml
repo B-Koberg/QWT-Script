@@ -1,0 +1,10 @@
+defaultIndent: "  "
+maxLineLength: 100
+
+modifyLineBreaks:
+  oneSentencePerLine:
+    manipulateSentences: 0
+
+  textWrapOptions:
+    columns: 100
+    textWrap: true

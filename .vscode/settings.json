@@ -1,12 +1,21 @@
 {
     "files.autoSave": "off",
-    "editor.wordWrap": "on",
+    "editor.wordWrap": "off",
     //"editor.wordWrapColumn": 80,
     //"editor.rulers": [80],
-    "latex-workshop.formatting.latex": "latexindent",
+
     "latex-workshop.latex.autoClean.run": "off",
     "latex-workshop.latex.clean.method": "glob",
     "latex-workshop.latex.clean.subfolder.enabled": true,
+    "latex-workshop.formatting.latex": "latexindent",
+    "latex-workshop.formatting.latexindent.path": "/usr/bin/latexindent",
+    "latex-workshop.formatting.latexindent.args": [
+        "-l=%DIR%/localSettings.yaml",
+        "-m",
+        "-c",
+        "%DIR%/",
+        "%TMPFILE%"
+    ],
     "latex-workshop.latex.clean.fileTypes": [
         "*.aux",
         "*.auxlock",
@@ -44,7 +53,8 @@
     // Copilot-Einstellungen für LaTeX-Dateien
     "[latex]": {
         "editor.defaultFormatter": "James-Yu.latex-workshop",
-        "editor.formatOnSave": true
+        "editor.formatOnSave": true,
+        "editor.wordWrap": "off"
     },
 
     // Alternative: Copilot komplett für diesen Workspace deaktivieren
