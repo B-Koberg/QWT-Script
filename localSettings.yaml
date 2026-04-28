@@ -1,10 +1,6 @@
 defaultIndent: "  "
-maxLineLength: 100
+maxLineLength: 120
 
 modifyLineBreaks:
-  oneSentencePerLine:
-    manipulateSentences: 0
-
   textWrapOptions:
-    columns: 100
-    textWrap: true
+    columns: 120

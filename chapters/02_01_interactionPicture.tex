@@ -23,50 +23,54 @@ Ziel ist es, den Einfluss von $H_{\mathrm{int}}$ systematisch zu beruecksichtige
   \end{tabular}
 \end{center}
 
-Zur Herleitung der Wellenfunktion im WW-Bild benutzen wir die Picture-Unabhaengigkeit des
+Zur Herleitung der Wellenfunktion im WW-Bild
+benutzen wir die Picture-Unabhaengigkeit des
 Erwartungswertes:
 \begin{equation}
-  \langle A\rangle
-  =\langle\phi_S(t)|A_S|\phi_S(t)\rangle
-  =\underbrace{\langle\phi_0(t)|}_{\text{Zustand im WW-Bild}}
+  \erw{A}
+  =\bra{\phi_S(t)}A_S\ket{\phi_S(t)}
+  =\underbrace{\bra{\phi_0(t)}}_{\text{Zustand im WW-Bild}}
   \,\underbrace{e^{\frac{i}{\hbar}
-        H_0(t-t_0)}A_S\,e^{-\frac{i}{\hbar}H_0(t-t_0)}}_{\text{Operator }A_0(t)\text{ im WW-Bild}} \,\underbrace{|\phi_0(t)\rangle}_{\text{Zustand im WW-Bild}}.
+        H_0(t-t_0)}A_S\,e^{-\frac{i}{\hbar}H_0(t-t_0)}}_{\text{Operator }A_0(t)\text{ im WW-Bild}} \,\underbrace{\ket{\phi_0(t)}}_{\text{Zustand im WW-Bild}}.
 \end{equation}
 Dabei haben wir im Prinzip zwei Einsen eingefügt und benutzt, dass:
 \begin{equation}
-  |\phi_0(t)\rangle=e^{\frac{i}{\hbar}
-      H_0(t-t_0)}|\phi_S(t)\rangle.
+  \ket{\phi_0(t)}=e^{\frac{i}{\hbar}
+      H_0(t-t_0)}\ket{\phi_S(t)}.
 \end{equation}
 Nun folgt die Bewegungsgleichung im WW-Bild direkt durch Ableiten:
 \begin{equation}
   \begin{aligned}
-    i\hbar\,\frac{\partial}{\partial t}|\phi_0(t)\rangle
-     & = i\hbar\,\frac{\partial}{\partial t}\left(e^{\frac{i}{\hbar}
-    H_0(t-t_0)}|\phi_S(t)\rangle\right)                                                                                                                     \\
-     & = -H_0e^{\frac{i}{\hbar}H_0(t-t_0)}|\phi_S(t)\rangle +e^{\frac{i}{\hbar}H_0(t-t_0)}\left(i\hbar\,\frac{\partial}{\partial t}|\phi_S(t)\rangle\right) \\ & = -H_0e^{\frac{i}{\hbar}H_0(t-t_0)}|\phi_S(t)\rangle +e^{\frac{i}{\hbar}H_0(t-t_0)}(H_0+H_{\mathrm{int}})|\phi_S(t)\rangle \\ & = e^{\frac{i}{\hbar}H_0(t-t_0)}H_{\mathrm{int}}|\phi_S(t)\rangle \\ & = e^{\frac{i}{\hbar}H_0(t-t_0)}H_{\mathrm{int}}e^{-\frac{i}{\hbar}H_0(t-t_0)}|\phi_0(t)\rangle \\      & = \underbrace{e^{\frac{i}{\hbar}H_0(t-t_0)}H_{\mathrm{int}}e^{-\frac{i}{\hbar}H_0(t-t_0)}}_{\equiv\,H_{\mathrm{int}}^{(0)}(t)}|\phi_0(t)\rangle.
+    i\hbar\,\frac{\partial}{\partial t}\ket{\phi_0(t)}
+     & = i\hbar\,\frac{\partial}{\partial t}\left(e^{\frac{i}{\hbar} H_0(t-t_0)}\ket{\phi_S(t)}\right)                                                  \\
+     & = -H_0e^{\frac{i}{\hbar}H_0(t-t_0)}\ket{\phi_S(t)} +e^{\frac{i}{\hbar}H_0(t-t_0)}\left(i\hbar\,\frac{\partial}{\partial t}\ket{\phi_S(t)}\right) \\
+     & = -H_0e^{\frac{i}{\hbar}H_0(t-t_0)}\ket{\phi_S(t)} +e^{\frac{i}{\hbar}H_0(t-t_0)}(H_0+H_{\mathrm{int}})\ket{\phi_S(t)}                           \\
+     & = e^{\frac{i}{\hbar}H_0(t-t_0)}H_{\mathrm{int}}\ket{\phi_S(t)}                                                                                   \\
+     & = e^{\frac{i}{\hbar}H_0(t-t_0)}H_{\mathrm{int}}e^{-\frac{i}{\hbar}H_0(t-t_0)}\ket{\phi_0(t)}                                                     \\
+     & = \underbrace{e^{\frac{i}{\hbar}H_0(t-t_0)}H_{\mathrm{int}}e^{-\frac{i}{\hbar}H_0(t-t_0)}}_{\equiv\,H_{\mathrm{int}}^{(0)}(t)}\ket{\phi_0(t)}.
   \end{aligned}
 \end{equation}
 Genutzt wurde hier einmal die Schrödinger-Gleichung und der Fakt, dass $H_0$ mit sich selbst und mit sich selbst im Exponent $(e^{H_0})$ kommutiert.
 Außerdem wurde erneut eine 1 eingefügt um aus dem Schrödinger-Zustand einen WW-Zustand zu machen.
 
-Damit gilt
+Damit gilt asdf
 \begin{equation}
-  i\hbar\,\frac{\partial}{\partial t}|\phi_0(t)\rangle=H_{\mathrm{int}}^{(0)}(t)|\phi_0(t)\rangle.
+  i\hbar\,\frac{\partial}{\partial t}\ket{\phi_0(t)}=H_{\mathrm{int}}^{(0)}(t)\ket{\phi_0(t)}.
 \end{equation}
 Hinweis: $H_0$ und $H_{\mathrm{int}}$ müssen dabei im Allgemeinen nicht kommutieren.
 
 \subsubsection*{Formale Lösung der Bewegungsgleichung im WW-Bild}
 \begin{equation}
   \label{eq:ww-eom}
-  i\hbar\,\frac{\partial}{\partial t}|\phi_0(t)\rangle
-  =H_{\mathrm{int}}^{(0)}(t)|\phi_0(t)\rangle.
+  i\hbar\,\frac{\partial}{\partial t}\ket{\phi_0(t)}
+  =H_{\mathrm{int}}^{(0)}(t)\ket{\phi_0(t)}.
 \end{equation}
 Fuer einen kleinen Zeitschritt $\delta t$:
 \begin{equation}
   \begin{aligned}
-    |\phi_0(t+\delta t)\rangle & \approx |\phi_0(t)\rangle+\delta|\phi_0(t)\rangle                                        \\
-                               & =|\phi_0(t)\rangle-\frac{i}{\hbar}H_{\mathrm{int}}^{(0)}(t)\,\delta t\,|\phi_0(t)\rangle \\
-                               & = e^{-\frac{i}{\hbar}H_{\mathrm{int}}^{(0)}(t)\,\delta t}|\phi_0(t)\rangle
+    \ket{\phi_0(t+\delta t)} & = \ket{\phi_0(t)}+\delta\ket{\phi_0(t)}                                              \\
+                             & =\ket{\phi_0(t)}-\frac{i}{\hbar}H_{\mathrm{int}}^{(0)}(t)\,\delta t\,\ket{\phi_0(t)} \\
+                             & \approx e^{-\frac{i}{\hbar}H_{\mathrm{int}}^{(0)}(t)\,\delta t}\ket{\phi_0(t)}
     \qquad \text{Exponentialnaeerung für kleines }\delta t
   \end{aligned}
 \end{equation}
@@ -75,23 +79,98 @@ Damit ist die gesamte Zeitentwicklung als Aneinanderreihung der $\delta t$ Zeite
 Die Zeitintervalle werden unendlich klein für eine exakte Darstellung.
 \begin{equation}
   \begin{aligned}
-    |\phi_0(t_2)\rangle
-     & = \lim \limits_{\delta t \to 0}\cdots e^{-\frac{i}{\hbar}H_{\mathrm{int}}^{(0)}(t_{a})\delta t}e^{-\frac{i}{\hbar}H_{\mathrm{int}}^{(0)}(t_1)\delta t}\cdots|\phi_0(t_1)\rangle, \\
-     & =\lim \limits_{\delta t \to 0}\mathcal T\prod_{t_i=t_1}^{t_2-\delta t}e^{-\frac{i}{\hbar}H_{\mathrm{int}}^{(0)}(t_i)\delta t}|\phi_0(t_1)\rangle,
+    \ket{\phi_0(t_2)}
+     & = \lim \limits_{\delta t \to 0}\cdots e^{-\frac{i}{\hbar}H_{\mathrm{int}}^{(0)}(t_{a})\delta t}e^{-\frac{i}{\hbar}H_{\mathrm{int}}^{(0)}(t_1)\delta t}\cdots\ket{\phi_0(t_1)}, \\
+     & =\lim \limits_{\delta t \to 0}\mathcal T\prod_{t_i=t_1}^{t_2-\delta t}e^{-\frac{i}{\hbar}H_{\mathrm{int}}^{(0)}(t_i)\delta t}\ket{\phi_0(t_1)},
   \end{aligned}
 \end{equation}
 Nun ziehen wir das Produkt in die Exponentialfunktion als Summe und lassen $\delta t$ gegen 0 gehen, wodurch die Summe zu einem Integral wird.
 Der Operator $\mathcal{T}$ sorgt für die richtige Zeitordnung der Exponentialfunktionen.
 \begin{equation}
-  |\phi_0(t_2)\rangle
-  =\mathcal T\exp\!\left[-\frac{i}{\hbar}\int_{t_1}^{t_2}d\tau\,H_{\mathrm{int}}^{(0)}(\tau)\right]|\phi_0(t_1)\rangle.
+  \ket{\phi_0(t_2)}
+  =\mathcal T\exp\!\left[-\frac{i}{\hbar}\int_{t_1}^{t_2}d\tau\,H_{\mathrm{int}}^{(0)}(\tau)\right]\ket{\phi_0(t_1)}.
 \end{equation}
 Schliesslich:
 \begin{equation}
   \begin{aligned}
-    |\phi_0(t_2)\rangle=S(t_2,t_1)|\phi_0(t_1)\rangle, \\
+    \ket{\phi_0(t_2)}=S(t_2,t_1)\ket{\phi_0(t_1)}, \\
     S(t_2,t_1)=\mathcal T\exp\!\left[-\frac{i}{\hbar}\int_{t_1}^{t_2}d\tau\,H_{\mathrm{int}}^{(0)}(\tau)\right].
   \end{aligned}
 \end{equation}
 
-\lend{24.04.2026}
+\lend{Vorl. 23.04.2026}
+
+\subsubsection*{Eigenschaften der S-Operatoren}
+
+\begin{equation}
+  S(t_0,t)=\tilde{\mathcal T}\exp\!\left[\frac{i}{\hbar}\int_{t_0}^{t}d\tau\,H_{\mathrm{int}}^{(0)}(\tau)\right],
+  \qquad t>t_0.
+\end{equation}
+Dabei laeuft der Operator in umgekehrter Zeitordnung, also rueckwaerts in der Zeitentwicklung. Exponent ist positiv weil die Integralgrenzen vertauscht sind.
+Zum einen gilt:
+\begin{equation}
+  S(t_0,t)=S^{-1}(t,t_0)=S^{\dagger}(t,t_0).
+\end{equation}
+Damit ist $S$ unitar. Die Unitarität von $S$ koennen wir direkt zeigen:
+\begin{equation}
+  \begin{aligned}
+    S^{-1}(t_1,t_0)S(t_1,t_0)
+     & = \left[\tilde{\mathcal T}\exp\!\left(\frac{i}{\hbar}\int_{t_0}^{t_1}d\tau\,H_{\mathrm{int}}^{(0)}(\tau)\right)\right]
+    \left[\mathcal T\exp\!\left(-\frac{i}{\hbar}\int_{t_0}^{t_1}d\tau\,H_{\mathrm{int}}^{(0)}(\tau)\right)\right]             \\
+     & = \lim_{\delta t\to 0}
+    \left[\tilde{\mathcal T}\prod_{t_i=t_0}^{t_1-\delta t}e^{\frac{i}{\hbar}H_{\mathrm{int}}^{(0)}(t_i)\delta t}\right]
+    \left[\mathcal T\prod_{t_j=t_0}^{t_1-\delta t}e^{-\frac{i}{\hbar}H_{\mathrm{int}}^{(0)}(t_j)\delta t}\right]              \\
+     & = 1.
+  \end{aligned}
+\end{equation}
+Exponentielle mit Operatoren im Exponenten kürzen sich hier weg, weil die Zeitordnung genau entgegengesetzt ist.
+Rechts läuft nach links, links läuft nach rechts, dadurch heben sich die Faktoren paarweise auf.
+
+Fuer den adjungierten Operator folgt die Formel
+indem man die einzelnen Operatoren adjungiert und
+die Reihenfolge umkehrent.
+
+Die naechste Eigenschaft ist die Verkettung der
+Zeitentwicklung:
+\begin{equation}
+  S(t_3,t_2)S(t_2,t_1)=S(t_3,t_1)
+  \qquad \text{fuer beliebige } t_1,t_2,t_3.
+\end{equation}
+Beweis fuer $t_3>t_2>t_1$:
+\begin{equation}
+  \begin{aligned}
+    S(t_3,t_2)S(t_2,t_1)
+     & = \mathcal T\exp\!\left[-\frac{i}{\hbar}\int_{t_2}^{t_3}d\tau\,H_{\mathrm{int}}^{(0)}(\tau)\right]
+    \mathcal T\exp\!\left[-\frac{i}{\hbar}\int_{t_1}^{t_2}d\tau\,H_{\mathrm{int}}^{(0)}(\tau)\right]      \\
+     & = \mathcal T\exp\!\left[-\frac{i}{\hbar}\int_{t_1}^{t_3}d\tau\,H_{\mathrm{int}}^{(0)}(\tau)\right] \\
+     & = S(t_3,t_1).
+  \end{aligned}
+\end{equation}
+Für die anderen Fälle (z.B. $t_2>t_3>t_1$) folgt relativ leicht:
+\begin{equation}
+  S(t_3,t_2)S(t_2,t_1) = S(t_3,t_1)S(t_1,t_2)S(t_2,t_1) = S(t_3,t_1).
+\end{equation}
+
+\subsubsection*{Zusammenhang zwischen Operatoren im Heisenberg- und WW-Bild}
+
+Erwartungswert bild unabhaengig:
+\begin{equation}
+  \begin{aligned}
+    \erw{A}
+     & = \bra{\phi_0(t)}A_0(t)\ket{\phi_0(t)}                           \\
+     & = \bra{\phi_0(t)}S^{\dagger}(t,t_0)A_0(t)S(t,t_0)\ket{\phi_0(t)} \\
+     & = \underbrace{\bra{\phi_H}}_{\text{Heisenberg-Zustand}}
+    \,\underbrace{A_H(t)}_{\text{H-Operator}}
+    \,\underbrace{\ket{\phi_H}}_{\text{H-Zustand}}.
+  \end{aligned}
+\end{equation}
+Daraus folgt unmittelbar
+\begin{equation}
+  A_H(t)=S^{\dagger}(t,t_0)A_0(t)S(t,t_0)=S(t_0,t)A_0(t)S(t,t_0).
+\end{equation}
+Für den Anfangszeitpunkt $t_0$ gilt trivialerweise
+\begin{equation}
+  \ket{\phi_0(t_0)}=\ket{\phi_H(t_0)},
+\end{equation}
+weil die Zustaende in allen Bildern am Startzeitpunkt zusammenfallen.
+

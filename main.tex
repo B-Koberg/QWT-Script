@@ -38,6 +38,8 @@
 % --- Literatur (BibTeX) ---
 \usepackage[numbers]{natbib}
 
+% --- PDF ---
+\usepackage{pdfpages}
 
 % --- Commands ---
 
@@ -72,17 +74,17 @@
 \hypersetup{pageanchor=false}
 
 \begin{titlepage}
-    \centering
-    \vspace*{3.5cm}
-    {\Huge \textbf{\vorlesungstitel} \par}
-    \vspace{1.2cm}
-    {\Large Vorlesungsmitschrift \par}
-    \vspace{1.8cm}
-    {\large Dozent: \professor \par}
-    \vspace{0.6cm}
-    {\large Mitschrift: \mitschriftvon \par}
-    \vfill
-    {\large \today \par}
+  \centering
+  \vspace*{3.5cm}
+  {\Huge \textbf{\vorlesungstitel} \par}
+  \vspace{1.2cm}
+  {\Large Vorlesungsmitschrift \par}
+  \vspace{1.8cm}
+  {\large Dozent: \professor \par}
+  \vspace{0.6cm}
+  {\large Mitschrift: \mitschriftvon \par}
+  \vfill
+  {\large \today \par}
 \end{titlepage}
 
 \pagenumbering{roman}
@@ -96,17 +98,15 @@
 \input{chapters/00_Motivation.tex}
 \newpage
 \input{chapters/01_01_redDichtematrizenPropagtoren.tex}
-\newpage
 \input{chapters/01_02_VerschGFuEigensch.tex}
-\newpage
 \input{chapters/01_03_GFfürFreieTeilchen.tex}
 \newpage
 \input{chapters/02_01_interactionPicture.tex}
+\input{chapters/02_02_Gell-Mann_Low.tex}
 
 \newpage
 \appendix
 \input{chapters/A_01_Bilder.tex}
-
 
 \nocite{*}
 \bibliographystyle{plain}
