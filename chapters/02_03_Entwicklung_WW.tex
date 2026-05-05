@@ -1,0 +1,23 @@
+\subsection{Entwicklung nach Potenzen der WW}
+
+Da die Wechselwirkung nur noch in $S$ auftritt, ist eine Entwicklung nach Potenzen der Wechselwirkung möglich.
+\begin{equation}
+  e^{x} = \sum_{n=0}^{\infty} \frac{x^{n}}{n!}
+\end{equation}
+Setzen wir dies in $S$ ein, so ergibt sich:
+\begin{equation}
+  \begin{aligned}
+    S & = \sum_{n=0}^{\infty} \frac{1}{n!}\left(-\frac{i}{\hbar}\right)^{n} \int_{-\infty}^{\infty} d\bar t_{1}\;\ldots\;\int_{-\infty}^{\infty} d\bar t_{n} \\
+      & \qquad\times\; \mathcal{T}\left\{H_{\mathrm{int}}^{0}(\bar t_{1})\ldots H_{\mathrm{int}}^{0}(\bar t_{n})\right\}
+  \end{aligned}
+\end{equation}
+Für die gestörte Greensfunktion folgt damit (mit den neuen Zeitvariablen $\bar t_{1},\ldots,\bar t_{n}$):
+\begin{equation}
+  \begin{aligned}
+    G(1,1\mkern1mu') & = -\frac{i}{\hbar}\frac{1}{\erw{S}}\sum_{n=0}^{\infty} \frac{1}{n!}\left(-\frac{i}{\hbar}\right)^{n}                                                                                                                       \\
+                     & \qquad\times\int_{-\infty}^{\infty} d\bar t_{1}\cdots d\bar t_{n}\;\erw{\mathcal{T}H_{\mathrm{int}}^{0}(\bar t_{1})\ldots H_{\mathrm{int}}^{0}(\bar t_{n})\,\psi_{0}(1)\,\psi_{0}^{\dagger}(1\mkern1mu')}                  \\
+    \erw{S}          & = \sum_{n=0}^{\infty} \frac{1}{n!}\left(-\frac{i}{\hbar}\right)^{n} \int_{-\infty}^{\infty} d\bar t_{1}\cdots d\bar t_{n}\;\erw{\mathcal{T}\{H_{\mathrm{int}}^{0}(\bar t_{1})\ldots H_{\mathrm{int}}^{0}(\bar t_{n})\}}\,.
+  \end{aligned}
+\end{equation}
+In $H_{\mathrm{int}}^{0}(t)$ treten in der Wechselwirkungsdarstellung Feldoperatoren $\psi_{0}$ und $\psi_{0}^{\dagger}$ auf. Daher führt die Potenzreihenentwicklung von $S$ zu einer Summe von Erwartungswerten mit wachsender Anzahl von Feldoperatoren $\psi_{0}$ und $\psi_{0}^{\dagger}$. Wird später durch das Wick-Theorem vereinfacht.
+

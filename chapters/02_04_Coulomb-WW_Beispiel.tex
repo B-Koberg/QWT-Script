@@ -1,0 +1,66 @@
+\subsection{Coulomb-WW als Beispiel}
+\stp
+
+\begin{equation}
+  H_{\mathrm{int}}^{H}(t)=\frac{1}{2}\int d^{3}r\int d^{3}r'\,\psi_{H}^{\dagger}(\vec r,t)\,\psi_{H}^{\dagger}(\vec r',t)\,V(\vec r-\vec r')\,\psi_{H}(\vec r',t)\,\psi_{H}(\vec r,t)
+\end{equation}
+
+\begin{itemize}
+  \item Wechselwirkungsbild:
+\end{itemize}
+
+\begin{equation}
+  \psi_{H}(\vec r,t)=S^{\dagger}(t,t_{0})\,\psi_{0}(\vec r,t)\,S(t,t_{0})
+\end{equation}
+
+\begin{equation}
+  \psi_{H}^{\dagger}(\vec r,t)=S^{\dagger}(t,t_{0})\,\psi_{0}^{\dagger}(\vec r,t)\,S(t,t_{0})
+\end{equation}
+
+Damit folgt
+\begin{equation}
+  H_{\mathrm{int}}^{H}(t)=S^{\dagger}(t,t_{0})\,H_{\mathrm{int}}^{0}(t)\,S(t,t_{0})
+\end{equation}
+
+und somit
+\begin{equation}
+  H_{\mathrm{int}}^{0}(t)=\frac{1}{2}\int d^{3}r\int d^{3}r'\,\psi_{0}^{\dagger}(\vec r,t)\,\psi_{0}^{\dagger}(\vec r',t)\,V(\vec r-\vec r')\,\psi_{0}(\vec r',t)\,\psi_{0}(\vec r,t)
+\end{equation}
+
+Fuer das Coulomb-Potential verwenden wir
+\begin{equation}
+  V(\vec r-\vec r')=\frac{e^{2}}{4\pi\varepsilon_{0}}\frac{1}{\lvert\vec r-\vec r'\rvert}
+\end{equation}
+
+und in kompakter Schreibweise
+\begin{equation}
+  V(1-1\mkern1mu')=V(\vec r_{1}-\vec r_{1\mkern1mu'})\,\delta(t_{1}-t_{1\mkern1mu'})
+\end{equation}
+
+Fuer die Stoerungsentwicklung von $S$ wird benoetigt:
+\begin{equation}
+  \int dt\,H_{\mathrm{int}}^{0}(t)=\frac{1}{2}\int d1\int d1\mkern1mu'\,\psi_{0}^{\dagger}(1)\,\psi_{0}^{\dagger}(1\mkern1mu')\,V(1-1\mkern1mu')\,\psi_{0}(1\mkern1mu')\,\psi_{0}(1)
+\end{equation}
+
+Entwicklung von $G(1,1\mkern1mu')$ nach Potenzen der WW:
+\begin{equation}
+  G(1,1\mkern1mu')=G^{(0)}(1,1\mkern1mu')+G^{(1)}(1,1\mkern1mu')+G^{(2)}(1,1\mkern1mu')+\ldots
+\end{equation}
+
+\begin{equation}
+  G^{(0)}(1,1\mkern1mu')=-\frac{i}{\hbar}\frac{1}{\erw{S}}\erw{\mathcal T\left\{\psi_{0}(1)\psi_{0}^{\dagger}(1\mkern1mu')\right\}}
+\end{equation}
+
+\begin{equation}
+  G^{(1)}(1,1\mkern1mu')=-\frac{i}{\hbar}\frac{1}{\erw{S}}\int d\bar t_{1}\,\erw{\mathcal T\left\{\psi_{0}(1)\psi_{0}^{\dagger}(1\mkern1mu')H_{\mathrm{int}}^{0}(\bar t_{1})\right\}}
+\end{equation}
+
+Einsetzen von $H_{\mathrm{int}}^{0}$ liefert
+\begin{equation}
+  \begin{aligned}
+    G^{(1)}(1,1\mkern1mu')
+     & =\left(-\frac{i}{\hbar}\right)^{2}\frac{1}{\erw{S}}\frac{1}{2}\int d2\int d2\mkern1mu'\,V(2-2\mkern1mu')                                                                  \\
+     & \quad\times\erw{\mathcal T\left\{\psi_{0}(1)\psi_{0}^{\dagger}(1\mkern1mu')\psi_{0}^{\dagger}(2)\psi_{0}^{\dagger}(2\mkern1mu')\psi_{0}(2\mkern1mu')\psi_{0}(2)\right\}}.
+  \end{aligned}
+\end{equation}
+

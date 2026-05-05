@@ -64,8 +64,32 @@ ist es antizeitgeordnet. Das versuchen wir jetzt loszuwerden.
 \clearpage
 \subsubsection*{Anmerkungen/Notizen meinerseits}
 \begin{itemize}
-  \item Was wir mehr oder weniger gemacht haben ist die antizeitgeordneten Operatoren in zeitgeordnete Operatoren umzuwandeln,
-        indem wir sie in den Nenner geschrieben haben.
+  \item Was wir mehr oder weniger gemacht haben ist die antizeitgeordneten Operatoren in zeitgeordnete Operatoren umzuwandeln, indem wir sie in den Nenner geschrieben haben.
+
+  \item Bei $t = -\infty$ ist das System ohne Wechselwirkung. Bis $t = 0$ wird die Wechselwirkung langsam eingeschaltet..
 \end{itemize}
 
 \lend{Vorl. 27.04.2026}
+
+\stp{Kompakte Notation (für Grundzustand)}
+
+\begin{equation}\label{f:komp_G_Grundzustand}
+  \begin{aligned}
+    G(1,1\mkern1mu')       & = -\frac{i}{\hbar}\frac{\erw{\mathcal{T}[S\psi_0(1)\psi_0^\dagger(1\mkern1mu')]}}{\erw{S}}                     \\
+    S                      & = S(\infty,-\infty) = \mathcal T e^{\frac{i}{\hbar}\int_{-\infty}^{\infty}d\tau\,H_{\mathrm{int}}^{(0)}(\tau)} \\
+    \langle \ldots \rangle & = \bra{\psi_0} \ldots \ket{\psi_0}
+  \end{aligned}
+\end{equation}
+
+Hierbei ist $H_{\mathrm{int}}^{(0)}$ die adiabatisch ein- und ausgeschaltete Wechselwirkung und $\ket{\phi_G^{(0)}}$ der Grundzustand des Systems ohne Wechselwirkung.
+
+\stp{Ohne Wechselwirkung}
+
+\begin{equation}\label{f:komp_G_Grundzustand_ohne_WW}
+  \begin{aligned}
+    G_0(1,1\mkern1mu') & = -\frac{i}{\hbar}\erw{\mathcal{T}[\psi_0(1)\psi_0^\dagger(1\mkern1mu')]}
+  \end{aligned}
+\end{equation}
+
+$\Rightarrow$ Wir wollen \autoref{f:komp_G_Grundzustand} durch \autoref{f:komp_G_Grundzustand_ohne_WW} darstellen.
+
