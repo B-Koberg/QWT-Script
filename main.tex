@@ -62,9 +62,12 @@
     {\fontsize{13}{15.5}\selectfont\bfseries \thesubsubmidsection\textup{)}\quad #1\par}%
     \vspace{0.35\baselineskip}%
 }
+\newcommand{\icon}[2][3ex]{%
+  \ensuremath{\mathord{\vcenter{\hbox{\includegraphics[height=#1]{Icon/#2}}}}}%
+}
 
 
-% --- Eigene Befehle (optional) ---
+% --- Titelblatt infos ---
 \newcommand{\todo}[1]{\textcolor{red}{TODO: #1}}
 \newcommand{\vorlesungstitel}{Introduction to Feynman Diagrams and Quantum Field Theory with Applications to Solid State Physics}
 \newcommand{\professor}{Prof. Dr. Frank Jahnke}
@@ -105,6 +108,8 @@
 \input{chapters/02_02_Gell-Mann_Low.tex}
 \input{chapters/02_03_Entwicklung_WW.tex}
 \input{chapters/02_04_Coulomb-WW_Beispiel.tex}
+\clearpage %hier fand ich dass es schöner aussah
+\input{chapters/02_05_Wicks-Theorem.tex}
 
 \newpage
 \appendix

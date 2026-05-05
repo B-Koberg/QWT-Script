@@ -8,7 +8,7 @@
     "latex-workshop.latex.clean.method": "glob",
     "latex-workshop.latex.clean.subfolder.enabled": true,
     "latex-workshop.formatting.latex": "latexindent",
-    "latex-workshop.formatting.latexindent.path": "/usr/bin/latexindent",
+    //"latex-workshop.formatting.latexindent.path": "/usr/bin/latexindent",
     "latex-workshop.formatting.latexindent.args": [
         "-l=%DIR%/localSettings.yaml",
         "-m",

@@ -1,0 +1,91 @@
+\subsection{Wick-Theorem}
+
+\begin{itemize}
+  \item Beachte: Erwartungswert ist imernoch im ww-freien Grundzustand
+  \item $\psi_0, \psi_0^\dagger$ nur Zeitentwicklung gemäß H 0\\
+        $\rightarrow$ Die Berechnung des Erwartungswertes analog zu freien Teilchen
+  \item Wick-Theorem: Operator Identität und damit exakt
+\end{itemize}
+
+\begin{center}
+  \fbox{%
+    \begin{minipage}{0.95\linewidth}
+      \raggedright
+      \setlength{\parindent}{0pt}
+      \setlength{\parskip}{0.8\baselineskip}
+
+      Der Erwartungswert eines Produktes einer beliebigen (geraden) Anzahl von Feldoperatoren $\psi_0$ und $\psi_0^\dagger$ in der Wechselwirkungsdarstellung ist gleich der Summe der Produkte aller möglichen paarweise Erwartungswerte (Kontraktionen) dieser Operatoren.
+
+      In jedem Operatorpaar stehen die Operatoren in der gleichen Reihenfolge, wie im ursprünglichen Erwartungswert.
+
+      Das Vorzeichen eines jeden Summanden ist $(-1)^P$, wobei $P$ die Anzahl der notwendigen Vertauschungen ist, um die Operatoren nebeneinander zu bringen.
+
+      Von Null verschieden sind nur die Kontraktionen mit $\psi$ und $\psi^\dagger$. (Im diagonalen Matrixelement müssen Teilchen, die durch $\psi^\dagger$ erzeugt werden, durch $\psi$ wieder vernichtet werden, und umgekehrt.)
+
+      Die Anwendung des Wick-Theorems ergibt Produkte von Erwartungswerten paarweise zeitgeordneter Feldoperatoren $\psi$ und $\psi^\dagger$, also Greensche Funktionen freier Teilchen.
+
+      Siehe auch: StudIP 07\_Wick-Theorem.pdf\\
+      G.C. Wick, \textit{Phys. Rev.} 80, 268 (1950)\\
+      Fetter and Walecka, \textit{Quantum Theory of Many-Particle Systems}
+    \end{minipage}%
+  }
+\end{center}
+
+Das Wick-Theorem liefert Produkte von zeitgeordneten Erwartungswerten:
+\begin{align}
+  G^{(0)}(1,1\mkern1mu')
+   & = -\frac{i}{\hbar}\,\erw{T\!\left[\psi_0(1)\,\psi_0^\dagger(1\mkern1mu')\right]}
+  \quad \text{(freie GF)}
+\end{align}
+\begin{equation}
+  \begin{aligned}
+    G^{(1)}(1,2)
+     & = \erw{T\!\left[\psi_0(1)\,\psi_0^\dagger(2)\,\psi_0^\dagger(3)\,\psi_0^\dagger(4)\psi_0(4)\,\psi_0(3)\right]}\,V(3-4) \\
+     & = (i\hbar)^3\Big\{
+    G_0(1,2)\Big[
+              \underbrace{G_0(3,3_+)G_0(4,4_+)}_{\textcolor{red}{\text{a)}}}
+              -
+              \underbrace{G_0(3,4)G_0(4,3)}_{\textcolor{red}{\text{b)}}}
+              \Big]                                                   \\
+     & \qquad\;
+    - G_0(1,3)\Big[
+                \underbrace{G_0(4,4_+)G_0(3,2)}_{\textcolor{red}{\text{c)}}}
+                -
+                \underbrace{G_0(3,4)G_0(4,2)}_{\textcolor{red}{\text{d)}}}
+                \Big]                                                   \\
+     & \qquad\;
+    - G_0(1,4)\Big[
+                \underbrace{G_0(3,3_+)G_0(4,2)}_{\textcolor{red}{\text{c)}}}
+                -
+                \underbrace{G_0(4,3)G_0(3,2)}_{\textcolor{red}{\text{d)}}}
+                \Big]
+    \Big\}\,V(3-4)\,.
+  \end{aligned}
+\end{equation}
+Folgende Anmerkungen fürs Verständnis:
+\begin{itemize}
+  \item Variablen 1, 1', 2, 2' wurden hier der Einfachheit halber in 1, 2, 3, 4 umbenannt
+  \item Genau genommen sind es keine Gleichungen da $G^{(1)}(1,1\mkern1mu')$ in \autoref{f:entw_G(1,1')} angegebn ist
+  \item Der erste Gleichheitsschritt ist somit einfach nur das Anwenden des Wick-Theorems auf die Erwartungswerte von sechs Operatoren
+\end{itemize}
+
+\subsubsection*{Feynman-Diagramm}
+
+% --- Kurze Legende für Diagramme ---
+\paragraph{Diagramm-Legende}
+Jedem Summanden wird ein spezielles Diagramm zugeordnet (Punkte, Linien, Wellenlinien):
+\begin{itemize}
+  \item Punkt (Variablen-Satz 1 = $r_1,t_1,s_1$) wird einem Punkt zugeordnet: \icon{dot.png}
+  \item Durchgezogene Linie is die freie GF: $G_0(1,1\mkern1mu')$ \icon{line.png}\\
+        $\rightarrow$ Für gleiche Argumente $G_0(1,1)$: \icon[6ex]{circle.png}
+  \item Wellenlinie: Wechselwirkung $V$ \icon[2.2ex]{wave.png}
+  \item Über alle inneren Punkte wird integriert (Summen/Integrale an den Symbolen zuordnen)
+\end{itemize}
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.8\textwidth]{Pictures/Feynman_for_Coulomb.png}
+  \caption{Feynman-Diagramme für die Terme a) bis f) in der Entwicklung von $G^{(1)}(1,2)$.}
+  \label{f:Feynman_Diagramm}
+\end{figure}
+
+\lend{Vorl. 04.05.2026}
