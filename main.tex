@@ -42,16 +42,18 @@
 
 % --- PDF ---
 \usepackage{pdfpages}
+\usepackage{xparse}
 
 % --- Commands ---
 
 \providecommand{\ket}[1]{\left|#1\right\rangle}
 \providecommand{\bra}[1]{\left\langle#1\right|}
 \providecommand{\erw}[1]{\left\langle#1\right\rangle}
-\providecommand{\lend}[1]{\begin{flushright}
-        #1\\[-0.8em]
-        \rule{3cm}{0.4pt}
-    \end{flushright}}
+\NewDocumentCommand{\lend}{m o}{\begin{flushright}
+    #1\\[-0.8em]
+    \rule{3cm}{0.4pt}
+    \IfValueT{#2}{\\[-0.1em]#2}
+  \end{flushright}}
 \providecommand{\stp}[1]{\noindent\textbullet\ #1}
 
 % Ueberschrift zwischen subsection und subsubsection, mit TOC-Eintrag
@@ -112,6 +114,8 @@
 \input{chapters/02_04_Coulomb-WW_Beispiel.tex}
 \clearpage %hier fand ich dass es schöner aussah
 \input{chapters/02_05_Wicks-Theorem.tex}
+\input{chapters/02_06_Regeln_Diagramme.tex}
+\input{chapters/02_07_Einf_Bloch_Diagr.tex}
 \clearpage
 \newpage
 \appendix
