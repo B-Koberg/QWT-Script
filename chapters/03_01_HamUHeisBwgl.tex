@@ -1,0 +1,52 @@
+\section{Bewegungsgleichung für die Einteilchen GF}
+Alternative Methode zur Bestimmung von G
+
+\subsection{Hamiltonian und Heisenberg-Bewegungsgleichung}
+
+\begin{align}
+  H & = \sum_{s_1} \int d^3r_1 \, \psi_{s_1}^\dagger(\vec r_1,t_1)\left[-\frac{\hbar^2}{2m}\Delta_{\vec r_1} + U(\vec r_1,t_1)\right]\psi_{s_1}(\vec r_1,t_1) \notag                                     \\
+    & \quad + \frac12 \sum_{s_1,s_2} \int d^3r_1 \, d^3r_2, \psi_{s_1}^\dagger(\vec r_1,t_1)\,\psi_{s_2}^\dagger(\vec r_2,t_1)\,V(\vec r_1-\vec r_2)\,\psi_{s_2}(\vec r_2,t_1)\,\psi_{s_1}(\vec r_1,t_1)
+\end{align}
+Der Hamiltonoperator besteht hier aus dem Einteilchenanteil (kinetische Energie und Gitterpotential/Plasmapotential/etc) und der Coulomb-Wechselwirkung.
+\begin{align}
+  i\hbar\,\frac{\partial}{\partial t_1} \psi_{s_1}(\vec r_1,t_1)
+   & = \bigl[\psi_{s_1}(\vec r_1,t_1),H\bigr] \notag                                                                                              \\
+   & = \left[-\frac{\hbar^2}{2m}\Delta_{1} + U(\vec r_1)\right]\psi_{s_1}(\vec r_1,t_1) \notag                                                    \\
+   & \quad + \sum_{s_2} \int d^3r_2 \, v(\vec r_1-\vec r_2)\,\psi_{s_2}^\dagger(\vec r_2,t_1)\,\psi_{s_2}(\vec r_2,t_1)\,\psi_{s_1}(\vec r_1,t_1)
+\end{align}
+Damit erhält man die Bewegungsgleichung für das Feld im Heisenberg-Bild.
+
+\subsubsection*{Zeitableitung der Einteilchen-GF}
+\begin{align}
+  G(1,1\mkern1mu')
+   & = -\frac{i}{\hbar}\,\erw{\mathcal T\!\left[\psi_H(1)\,\psi_H^\dagger(1\mkern1mu')\right]} \notag                                                                                                                                                           \\
+   & = \theta(t_1-t_1\mkern1mu')\,\underbrace{G^>(1,1\mkern1mu')}_{-\frac{i}{\hbar}\,\erw{\psi_H(1)\,\psi_H^\dagger(1\mkern1mu')}} + \theta(t_1\mkern1mu'-t_1)\,\underbrace{G^<(1,1\mkern1mu')}_{\frac{i}{\hbar}\,\erw{\psi_H^\dagger(1\mkern1mu')\,\psi_H(1)}}
+\end{align}
+\begin{align}
+  \frac{\partial}{\partial t_1} G(1,1\mkern1mu')
+  = \frac{\partial \theta}{\partial t_1}\,G^> + \theta\,\frac{\partial G^>}{\partial t_1} + \frac{\partial \theta'}{\partial t_1}\,G^< + \theta'\,\frac{\partial G^<}{\partial t_1}
+\end{align}
+Beim Ableiten entstehen also zwei Arten von Termen: Beiträge aus den Theta-Funktionen und Beiträge aus den abgeleiteten GF\@.
+\begin{align}
+  \frac{\partial}{\partial t_1}\theta(\pm t_1\mp t_1\mkern1mu') & = \pm \delta(t_1-t_1\mkern1mu')
+\end{align}
+Die Ableitung der Zeitordnung liefert damit direkt den Sprungterm an der gleichen Zeit. Das ist der Ursprung des Antikommutators im nächsten Schritt.
+\begin{align}
+  i\hbar\,\frac{\partial}{\partial t_1}G(1,1\mkern1mu')
+   & = \delta(t_1-t_1\mkern1mu')\,\underbrace{\erw{\psi(1),\psi^\dagger(1\mkern1mu')}+\erw{\psi^\dagger(1\mkern1mu'),\psi(1)}}_{\shortstack[l]{da $t_1=t_1\mkern1mu'$\\$\rightarrow$ Fermiantikommutator\\$=\delta(r_1-r_1\mkern1mu')\delta_{s_1,s_1\mkern1mu'}$}} \notag \\
+   & \quad + \erw{\mathcal T\!\left[\bigl(i\hbar\,\frac{\partial}{\partial t_1}\psi(1)\bigr)\,\psi^\dagger(1\mkern1mu')\right]}
+\end{align}
+Nun setzen wir die Heisenberg-Bewegungsgleichung im zweiten Term ein:
+\begin{align}
+  i\hbar\,\erw{\mathcal T\!\left[\psi(1)\,\psi^\dagger(1\mkern1mu')\right]}
+   & = \left[-\frac{\hbar^2}{2m}\Delta_{1} + U(\vec r_1,t_1)\right]\erw{\mathcal T\!\left[\psi(1)\,\psi^\dagger(1\mkern1mu')\right]}\notag                                                               \\
+   & \quad + \sum_{s_2}\int d^3r_2\,v(\vec r_1-\vec r_2)\,\erw{\mathcal T\!\left[\psi_{s_2}^\dagger(\vec r_2,t_1)\,\psi_{s_2}(\vec r_2,t_1)\,\psi_{s_1}(\vec r_1,t_1)\,\psi^\dagger(1\mkern1mu')\right]}
+\end{align}
+Unter dem Zeitordnungsoperator T lässt der letzte Term wie folgt umformen:
+\begin{align}
+   & \erw{\mathcal T\!\left[\psi_{s_2}^\dagger(\vec r_2,t_1)\,\psi_{s_2}(\vec r_2,t_1)\,\psi_{s_1}(\vec r_1,t_1)\,\psi^\dagger(1\mkern1mu')\right]}\notag                     \\
+   & = \erw{\mathcal T\!\left[\psi_{s_2}(\vec r_2,t_2)\,\psi_{s_1}(\vec r_1,t_1)\,\psi_{s_2}^\dagger(\vec r_2,t_2^+)\,\psi^\dagger(1\mkern1mu')\right]} \qquad t_2=t_1 \notag \\
+   & = - \erw{\mathcal T\!\left[\psi(1)\,\psi(2)\,\psi(2^+)\,\psi^\dagger(1\mkern1mu')\right]} \qquad t_2=t_1
+\end{align}
+
+\lend{Vorl. 18.05.2026}[Vorl. 22.05.2026]
